@@ -14,59 +14,65 @@ public class PlayerController : MonoBehaviour
 
     public PlayerDirection Direction;
 
-    float f_Vertical;
-    float f_Horizontal;
-    float f_moveLimiter = 0.7f;
-    public float f_RunSpeed = 0.0f;
-    private Rigidbody2D rb_Player;
-    public SpriteRenderer sr_Player;
+    private float _Vertical;
+    private float _Horizontal;
+
+
+    private float _moveLimiter = 0.7f;
+
+    [Tooltip("This describes how fast the player will move")]
+    [Range(0f, 30f)]
+    [SerializeField] protected float f_RunSpeed = 0.0f;
+
+    protected Rigidbody2D rigidBody2D;
+    public SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        rb_Player = GetComponent<Rigidbody2D>();
+        rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        f_Horizontal = Input.GetAxisRaw("Horizontal");
-        f_Vertical = Input.GetAxisRaw("Vertical");
+        _Horizontal = Input.GetAxisRaw("Horizontal");
+        _Vertical = Input.GetAxisRaw("Vertical");
     }
 
     private void FixedUpdate() {
-        if (f_Horizontal != 0 && f_Vertical != 0) {
+        if (_Horizontal != 0 && _Vertical != 0) {
 
-            f_Horizontal *= f_moveLimiter;
-            f_Vertical *= f_moveLimiter;
+            _Horizontal *= _moveLimiter;
+            _Vertical *= _moveLimiter;
         }
 
-        if(f_Horizontal == 1) {
+        if(_Horizontal == 1) {
             Direction = PlayerDirection.Right;
-        } else if (f_Horizontal == -1) {
+        } else if (_Horizontal == -1) {
             Direction = PlayerDirection.Left;
-        } else if (f_Vertical == 1) {
+        } else if (_Vertical == 1) {
             Direction = PlayerDirection.Up;
-        } else if (f_Vertical == -1) {
+        } else if (_Vertical == -1) {
             Direction = PlayerDirection.Down;
         }
 
-        rb_Player.velocity = new Vector2(f_Horizontal * f_RunSpeed, f_Vertical * f_RunSpeed);
+        rigidBody2D.velocity = new Vector2(_Horizontal * f_RunSpeed, _Vertical * f_RunSpeed);
         ChangePlayerSprite();
     }
 
     public void ChangePlayerSprite() {
         switch (Direction) {
             case PlayerDirection.Left:
-                sr_Player.color = Color.red;
+                spriteRenderer.color = Color.red;
                 return;
             case PlayerDirection.Right:
-                sr_Player.color = Color.blue;
+                spriteRenderer.color = Color.blue;
                 return;
             case PlayerDirection.Up:
-                sr_Player.color = Color.yellow;
+                spriteRenderer.color = Color.yellow;
                 return;
             case PlayerDirection.Down:
-                sr_Player.color = Color.green;
+                spriteRenderer.color = Color.green;
                 return;
             default:
                 break;
