@@ -1,52 +1,52 @@
 fileFormatVersion: 2
-guid: c8d3ebac0387ff14bb8d1c9e0c1508fe
+guid: da628a503346ccc43bee4b4d0ae07983
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6410720941308904187
-    second: CharacterIdleAnimation_0
+      213: -1479155125552710811
+    second: SPRS_Character_Idle_BACK_0
   - first:
-      213: 4254768270876499784
-    second: CharacterIdleAnimation_1
+      213: -999313002071262733
+    second: SPRS_Character_Idle_BACK_1
   - first:
-      213: 4827495299910557804
-    second: CharacterIdleAnimation_2
+      213: 1247495087765887698
+    second: SPRS_Character_Idle_BACK_2
   - first:
-      213: -2189645046387450467
-    second: CharacterIdleAnimation_3
+      213: 3749758988820555399
+    second: SPRS_Character_Idle_BACK_3
   - first:
-      213: -2224669540369585863
-    second: CharacterIdleAnimation_4
+      213: 3264205996240493039
+    second: SPRS_Character_Idle_BACK_4
   - first:
-      213: -870777298693310136
-    second: CharacterIdleAnimation_5
+      213: -2001940550447470198
+    second: SPRS_Character_Idle_BACK_5
   - first:
-      213: 3051610237442485666
-    second: CharacterIdleAnimation_6
+      213: 3454638452413872137
+    second: SPRS_Character_Idle_BACK_6
   - first:
-      213: -6861342669710750355
-    second: CharacterIdleAnimation_7
+      213: 4803624331757777880
+    second: SPRS_Character_Idle_BACK_7
   - first:
-      213: -8106043399561604802
-    second: CharacterIdleAnimation_8
+      213: -1313637133845815588
+    second: SPRS_Character_Idle_BACK_8
   - first:
-      213: 4804698478575934830
-    second: CharacterIdleAnimation_9
+      213: -7452942992125227208
+    second: SPRS_Character_Idle_BACK_9
   - first:
-      213: -547294014167348675
-    second: CharacterIdleAnimation_10
+      213: -2434840863741536926
+    second: SPRS_Character_Idle_BACK_10
   - first:
-      213: -1808780927100930894
-    second: CharacterIdleAnimation_11
+      213: -5452585836821982159
+    second: SPRS_Character_Idle_BACK_11
   - first:
-      213: -2736732353697440634
-    second: CharacterIdleAnimation_12
+      213: -3171188204707153412
+    second: SPRS_Character_Idle_BACK_12
   - first:
-      213: 3327819566388482901
-    second: CharacterIdleAnimation_13
+      213: -5583647477423903961
+    second: SPRS_Character_Idle_BACK_13
   - first:
-      213: 3806646100422873134
-    second: CharacterIdleAnimation_14
+      213: -3396545638743418671
+    second: SPRS_Character_Idle_BACK_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -160,7 +160,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CharacterIdleAnimation_0
+      name: SPRS_Character_Idle_BACK_0
       rect:
         serializedVersion: 2
         x: 0
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf200ec0bb477f850800000000000000
-      internalID: 6410720941308904187
+      spriteID: 56b7bbd004cf87be0800000000000000
+      internalID: -1479155125552710811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_1
+      name: SPRS_Character_Idle_BACK_1
       rect:
         serializedVersion: 2
         x: 32
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84f523b1339fb0b30800000000000000
-      internalID: 4254768270876499784
+      spriteID: 3f9fc148e1ab122f0800000000000000
+      internalID: -999313002071262733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_2
+      name: SPRS_Character_Idle_BACK_2
       rect:
         serializedVersion: 2
         x: 64
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c60690ae565bef240800000000000000
-      internalID: 4827495299910557804
+      spriteID: 2da945d3c2eff4110800000000000000
+      internalID: 1247495087765887698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_3
+      name: SPRS_Character_Idle_BACK_3
       rect:
         serializedVersion: 2
         x: 96
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9dd1e97e61dc91e0800000000000000
-      internalID: -2189645046387450467
+      spriteID: 7862af9eee1d90430800000000000000
+      internalID: 3749758988820555399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_4
+      name: SPRS_Character_Idle_BACK_4
       rect:
         serializedVersion: 2
         x: 128
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 939a3aff6d26021e0800000000000000
-      internalID: -2224669540369585863
+      spriteID: fe95d9f1f0acc4d20800000000000000
+      internalID: 3264205996240493039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_5
+      name: SPRS_Character_Idle_BACK_5
       rect:
         serializedVersion: 2
         x: 160
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84939e019a06ae3f0800000000000000
-      internalID: -870777298693310136
+      spriteID: a89e0251dada734e0800000000000000
+      internalID: -2001940550447470198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_6
+      name: SPRS_Character_Idle_BACK_6
       rect:
         serializedVersion: 2
         x: 192
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ad64b3c75f795a20800000000000000
-      internalID: 3051610237442485666
+      spriteID: 908b8877e5751ff20800000000000000
+      internalID: 3454638452413872137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_7
+      name: SPRS_Character_Idle_BACK_7
       rect:
         serializedVersion: 2
         x: 224
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6d09a1e13d97c0a0800000000000000
-      internalID: -6861342669710750355
+      spriteID: 8d378d801e6e9a240800000000000000
+      internalID: 4803624331757777880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_8
+      name: SPRS_Character_Idle_BACK_8
       rect:
         serializedVersion: 2
         x: 256
@@ -342,14 +342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e311b3bc97c818f80800000000000000
-      internalID: -8106043399561604802
+      spriteID: cde9b599cf505cde0800000000000000
+      internalID: -1313637133845815588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_9
+      name: SPRS_Character_Idle_BACK_9
       rect:
         serializedVersion: 2
         x: 288
@@ -363,14 +363,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6dd0645fc7bda240800000000000000
-      internalID: 4804698478575934830
+      spriteID: 83f832706d3d19890800000000000000
+      internalID: -7452942992125227208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_10
+      name: SPRS_Character_Idle_BACK_10
       rect:
         serializedVersion: 2
         x: 320
@@ -384,14 +384,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3a8bd96efe9768f0800000000000000
-      internalID: -547294014167348675
+      spriteID: 26594108225b53ed0800000000000000
+      internalID: -2434840863741536926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_11
+      name: SPRS_Character_Idle_BACK_11
       rect:
         serializedVersion: 2
         x: 352
@@ -405,14 +405,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b4b5a3845be5e6e0800000000000000
-      internalID: -1808780927100930894
+      spriteID: 13456e802168454b0800000000000000
+      internalID: -5452585836821982159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_12
+      name: SPRS_Character_Idle_BACK_12
       rect:
         serializedVersion: 2
         x: 384
@@ -426,14 +426,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68c9b849c6c250ad0800000000000000
-      internalID: -2736732353697440634
+      spriteID: cf97586212dadf3d0800000000000000
+      internalID: -3171188204707153412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_13
+      name: SPRS_Character_Idle_BACK_13
       rect:
         serializedVersion: 2
         x: 416
@@ -447,14 +447,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5531e2b934ace2e20800000000000000
-      internalID: 3327819566388482901
+      spriteID: 72b6425e336e282b0800000000000000
+      internalID: -5583647477423903961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_14
+      name: SPRS_Character_Idle_BACK_14
       rect:
         serializedVersion: 2
         x: 448
@@ -468,8 +468,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e20d459b57ce3d430800000000000000
-      internalID: 3806646100422873134
+      spriteID: 1d8db4bbcbb0dd0d0800000000000000
+      internalID: -3396545638743418671
       vertices: []
       indices: 
       edges: []
