@@ -33,6 +33,21 @@ public class PlayerController : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
 
+    // DASH VARIABLES
+
+    protected bool canDash = true;
+    protected bool isDashing;
+    [Tooltip("This describes the strength of the players dash")]
+    [Range(0f, 30f)]
+    [SerializeField] protected float dashingPower = 24f;
+    [Tooltip("This describes how long the player can dash for")]
+    [Range(0f, 2f)]
+    [SerializeField] protected float dashingTime = 0.2f;
+    [Tooltip("This describes the strength of the players dash")]
+    [Range(0f, 5f)]
+    [SerializeField] protected float dashingCooldown = 1f;
+    [SerializeField] protected TrailRenderer trailRenderer;
+
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -43,13 +58,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDashing == true) {
+            return;
+        }
+
         _Horizontal = Input.GetAxisRaw("Horizontal");
         _Vertical = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true) {
+            StartCoroutine(Dash());
+        }
 
         Debug.Log((int)playerDirection);
     }
 
     private void FixedUpdate() {
+        if(isDashing == true) {
+            return;
+        }
+
         if (_Horizontal != 0 || _Vertical != 0) {
             animator.SetBool("IsRunning", true);
         } else {
@@ -75,7 +102,42 @@ public class PlayerController : MonoBehaviour
         //}
 
         rigidBody2D.velocity = new Vector2(_Horizontal * f_RunSpeed, _Vertical * f_RunSpeed);
+
+
         ChangePlayerSprite();
+    }
+
+    private IEnumerator Dash() {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rigidBody2D.gravityScale;
+        rigidBody2D.gravityScale = 0.0f;
+        switch (gunDirection) {
+            case GunDirection.NE:
+                rigidBody2D.velocity = new Vector2(transform.localScale.x * dashingPower * _moveLimiter, transform.localScale.y * dashingPower * _moveLimiter);
+                break;
+            case GunDirection.NW:
+                rigidBody2D.velocity = new Vector2(-transform.localScale.x * dashingPower * _moveLimiter, transform.localScale.y * dashingPower * _moveLimiter);
+                break;
+            case GunDirection.SW:
+                rigidBody2D.velocity = new Vector2(-transform.localScale.x * dashingPower * _moveLimiter, -transform.localScale.y * dashingPower * _moveLimiter);
+                break;
+            case GunDirection.SE:
+                rigidBody2D.velocity = new Vector2(transform.localScale.x * dashingPower * _moveLimiter, -transform.localScale.y * dashingPower * _moveLimiter);
+                break;
+            default:
+                break;
+        }
+        //rigidBody2D.velocity = new Vector2(transform.localScale.x * dashingPower, transform.localScale.y * dashingPower);
+        trailRenderer.emitting = true;
+        spriteRenderer.enabled = false;
+        yield return new WaitForSeconds(dashingTime);
+        spriteRenderer.enabled = true;
+        trailRenderer.emitting = false;
+        rigidBody2D.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 
     public void ChangePlayerSprite() {
@@ -126,8 +188,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
-
 
     public PlayerDirection SetPlayerDirection(PlayerDirection direction) {
         return playerDirection = direction;
