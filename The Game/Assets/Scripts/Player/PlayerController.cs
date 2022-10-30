@@ -16,6 +16,8 @@ public enum PlayerDirection {
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
+
     protected PlayerDirection playerDirection;
     protected GunDirection gunDirection;
 
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     [Tooltip("This describes how fast the player will move")]
     [Range(0f, 30f)]
-    [SerializeField] protected float f_RunSpeed = 0.0f;
+    [SerializeField] protected float runSpeed = 0.0f;
 
     protected Rigidbody2D rigidBody2D;
     protected SpriteRenderer spriteRenderer;
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
     // DASH VARIABLES
 
     protected bool canDash = true;
-    protected bool isDashing;
+    public bool isDashing;
     [Tooltip("This describes the strength of the players dash")]
     [Range(0f, 30f)]
     [SerializeField] protected float dashingPower = 24f;
@@ -47,6 +49,15 @@ public class PlayerController : MonoBehaviour
     [Range(0f, 5f)]
     [SerializeField] protected float dashingCooldown = 1f;
     [SerializeField] protected TrailRenderer trailRenderer;
+
+    private void Awake() {
+
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+        }
+
+        Instance = this;
+    }
 
     void Start()
     {
@@ -69,7 +80,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Dash());
         }
 
-        Debug.Log((int)playerDirection);
+        //Debug.Log((int)playerDirection);
     }
 
     private void FixedUpdate() {
@@ -101,7 +112,7 @@ public class PlayerController : MonoBehaviour
         //    Direction = PlayerDirection.Down;
         //}
 
-        rigidBody2D.velocity = new Vector2(_Horizontal * f_RunSpeed, _Vertical * f_RunSpeed);
+        rigidBody2D.velocity = new Vector2(_Horizontal * runSpeed, _Vertical * runSpeed);
 
 
         ChangePlayerSprite();
