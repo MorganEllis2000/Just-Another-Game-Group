@@ -76,11 +76,9 @@ public class PlayerController : MonoBehaviour
         _Horizontal = Input.GetAxisRaw("Horizontal");
         _Vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true) {
+        if (Input.GetKey(KeyCode.LeftShift) && canDash == true) {
             StartCoroutine(Dash());
         }
-
-        //Debug.Log((int)playerDirection);
     }
 
     private void FixedUpdate() {
@@ -95,25 +93,12 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsRunning", false);
         }
 
-        
-
         if (_Horizontal != 0 && _Vertical != 0) {
             _Horizontal *= _moveLimiter;
             _Vertical *= _moveLimiter;
         }
 
-        //if(_Horizontal == 1) {
-        //    Direction = PlayerDirection.Right;
-        //} else if (_Horizontal == -1) {
-        //    Direction = PlayerDirection.Left;
-        //} else if (_Vertical == 1) {
-        //    Direction = PlayerDirection.Up;
-        //} else if (_Vertical == -1) {
-        //    Direction = PlayerDirection.Down;
-        //}
-
         rigidBody2D.velocity = new Vector2(_Horizontal * runSpeed, _Vertical * runSpeed);
-
 
         ChangePlayerSprite();
     }
@@ -123,23 +108,29 @@ public class PlayerController : MonoBehaviour
         isDashing = true;
         float originalGravity = rigidBody2D.gravityScale;
         rigidBody2D.gravityScale = 0.0f;
-        switch (gunDirection) {
-            case GunDirection.NE:
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W)) {
+            if (Input.GetKey(KeyCode.D)) {
                 rigidBody2D.velocity = new Vector2(transform.localScale.x * dashingPower * _moveLimiter, transform.localScale.y * dashingPower * _moveLimiter);
-                break;
-            case GunDirection.NW:
+            } else if (Input.GetKey(KeyCode.A)) {
                 rigidBody2D.velocity = new Vector2(-transform.localScale.x * dashingPower * _moveLimiter, transform.localScale.y * dashingPower * _moveLimiter);
-                break;
-            case GunDirection.SW:
-                rigidBody2D.velocity = new Vector2(-transform.localScale.x * dashingPower * _moveLimiter, -transform.localScale.y * dashingPower * _moveLimiter);
-                break;
-            case GunDirection.SE:
+            } else {
+                rigidBody2D.velocity = new Vector2(0, transform.localScale.y * dashingPower * _moveLimiter);
+            }
+        } else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.S)) {
+            if (Input.GetKey(KeyCode.D)) {
                 rigidBody2D.velocity = new Vector2(transform.localScale.x * dashingPower * _moveLimiter, -transform.localScale.y * dashingPower * _moveLimiter);
-                break;
-            default:
-                break;
+            } else if (Input.GetKey(KeyCode.A)) {
+                rigidBody2D.velocity = new Vector2(-transform.localScale.x * dashingPower * _moveLimiter, -transform.localScale.y * dashingPower * _moveLimiter);
+            } else {
+                rigidBody2D.velocity = new Vector2(0, -transform.localScale.y * dashingPower * _moveLimiter);
+            }
+        } else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.A)) {
+            rigidBody2D.velocity = new Vector2(-transform.localScale.x * dashingPower * _moveLimiter, 0);
+        } else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.D)) {
+            rigidBody2D.velocity = new Vector2(transform.localScale.x * dashingPower * _moveLimiter, 0);
         }
-        //rigidBody2D.velocity = new Vector2(transform.localScale.x * dashingPower, transform.localScale.y * dashingPower);
+
         trailRenderer.emitting = true;
         spriteRenderer.enabled = false;
         yield return new WaitForSeconds(dashingTime);
@@ -196,7 +187,6 @@ public class PlayerController : MonoBehaviour
                 return;
             default:
                 break;
-
         }
     }
 
