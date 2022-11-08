@@ -536,7 +536,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.6
+  orthographic size: 12.02
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -17802,7 +17802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &942692671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18173,7 +18173,7 @@ GameObject:
   - component: {fileID: 1354635699}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18276,7 +18276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354635692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.03, y: 3.09, z: 0}
+  m_LocalPosition: {x: -8.4, y: -5.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 872581571}
@@ -18435,14 +18435,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.04, y: 0.13}
-      - {x: -0.099999994, y: 0.11}
-      - {x: -0.099999994, y: -0.099999994}
-      - {x: -0.06, y: -0.13}
-      - {x: 0.07, y: -0.13}
-      - {x: 0.099999994, y: -0.12}
-      - {x: 0.099999994, y: 0.06}
-      - {x: 0.08, y: 0.13}
+    - - {x: -0.25, y: 0.8125}
+      - {x: -0.625, y: 0.6875}
+      - {x: -0.625, y: -0.625}
+      - {x: -0.375, y: -0.8125}
+      - {x: 0.4375, y: -0.8125}
+      - {x: 0.625, y: -0.75}
+      - {x: 0.625, y: 0.375}
+      - {x: 0.5, y: 0.8125}
 --- !u!1 &1393634337
 GameObject:
   m_ObjectHideFlags: 0
@@ -18730,6 +18730,8 @@ GameObject:
   - component: {fileID: 1828248015}
   - component: {fileID: 1828248018}
   - component: {fileID: 1828248019}
+  - component: {fileID: 1828248020}
+  - component: {fileID: 1828248021}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -18744,7 +18746,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828248014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b09e35be58cb1b644af226376b8f92c7, type: 3}
   m_Name: 
@@ -18854,6 +18856,43 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 7
+--- !u!114 &1828248020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828248014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a915b4f08eb5c49a6ad26230784398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 1828248014}
+  EnemyMoveSpeed: 2.18
+  OriginalPosition: {x: 5.2368317, y: 7.752174, z: 19.932907}
+  branch: {fileID: 8198665312710759532, guid: 7e3714e55a7e86b42b1e23d053c53949, type: 3}
+--- !u!50 &1828248021
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828248014}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1851844642
 GameObject:
   m_ObjectHideFlags: 0
