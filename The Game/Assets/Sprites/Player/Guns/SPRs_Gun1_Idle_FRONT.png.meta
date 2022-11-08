@@ -1,52 +1,52 @@
 fileFormatVersion: 2
-guid: c8d3ebac0387ff14bb8d1c9e0c1508fe
+guid: 16dd6adf743ddb048871431ff36ac9f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6410720941308904187
-    second: CharacterIdleAnimation_0
+      213: 4034550473895366342
+    second: SPRs_Gun1_Idle_FRONT_0
   - first:
-      213: 4254768270876499784
-    second: CharacterIdleAnimation_1
+      213: -5161128164364426689
+    second: SPRs_Gun1_Idle_FRONT_1
   - first:
-      213: 4827495299910557804
-    second: CharacterIdleAnimation_2
+      213: 593638318091500359
+    second: SPRs_Gun1_Idle_FRONT_2
   - first:
-      213: -2189645046387450467
-    second: CharacterIdleAnimation_3
+      213: 1627801761580835765
+    second: SPRs_Gun1_Idle_FRONT_3
   - first:
-      213: -2224669540369585863
-    second: CharacterIdleAnimation_4
+      213: 4046658269906404669
+    second: SPRs_Gun1_Idle_FRONT_4
   - first:
-      213: -870777298693310136
-    second: CharacterIdleAnimation_5
+      213: -197263676767401432
+    second: SPRs_Gun1_Idle_FRONT_5
   - first:
-      213: 3051610237442485666
-    second: CharacterIdleAnimation_6
+      213: 1796308976844123457
+    second: SPRs_Gun1_Idle_FRONT_6
   - first:
-      213: -6861342669710750355
-    second: CharacterIdleAnimation_7
+      213: -5525172130910456902
+    second: SPRs_Gun1_Idle_FRONT_7
   - first:
-      213: -8106043399561604802
-    second: CharacterIdleAnimation_8
+      213: -2008768809892774314
+    second: SPRs_Gun1_Idle_FRONT_8
   - first:
-      213: 4804698478575934830
-    second: CharacterIdleAnimation_9
+      213: -7783836885021922589
+    second: SPRs_Gun1_Idle_FRONT_9
   - first:
-      213: -547294014167348675
-    second: CharacterIdleAnimation_10
+      213: -5258741984651746079
+    second: SPRs_Gun1_Idle_FRONT_10
   - first:
-      213: -1808780927100930894
-    second: CharacterIdleAnimation_11
+      213: 2498517789270956476
+    second: SPRs_Gun1_Idle_FRONT_11
   - first:
-      213: -2736732353697440634
-    second: CharacterIdleAnimation_12
+      213: -8588937071700166261
+    second: SPRs_Gun1_Idle_FRONT_12
   - first:
-      213: 3327819566388482901
-    second: CharacterIdleAnimation_13
+      213: 8494359225913716495
+    second: SPRs_Gun1_Idle_FRONT_13
   - first:
-      213: 3806646100422873134
-    second: CharacterIdleAnimation_14
+      213: -5466614957800014222
+    second: SPRs_Gun1_Idle_FRONT_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -112,7 +112,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -124,19 +124,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -148,7 +136,7 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -160,7 +148,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CharacterIdleAnimation_0
+      name: SPRs_Gun1_Idle_FRONT_0
       rect:
         serializedVersion: 2
         x: 0
@@ -174,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf200ec0bb477f850800000000000000
-      internalID: 6410720941308904187
+      spriteID: 6cecae0b74a9df730800000000000000
+      internalID: 4034550473895366342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_1
+      name: SPRs_Gun1_Idle_FRONT_1
       rect:
         serializedVersion: 2
         x: 32
@@ -195,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84f523b1339fb0b30800000000000000
-      internalID: 4254768270876499784
+      spriteID: f326bc2874dff58b0800000000000000
+      internalID: -5161128164364426689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_2
+      name: SPRs_Gun1_Idle_FRONT_2
       rect:
         serializedVersion: 2
         x: 64
@@ -216,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c60690ae565bef240800000000000000
-      internalID: 4827495299910557804
+      spriteID: 74b77e2b7e60d3800800000000000000
+      internalID: 593638318091500359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_3
+      name: SPRs_Gun1_Idle_FRONT_3
       rect:
         serializedVersion: 2
         x: 96
@@ -237,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9dd1e97e61dc91e0800000000000000
-      internalID: -2189645046387450467
+      spriteID: 5b3e7c3e31d179610800000000000000
+      internalID: 1627801761580835765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_4
+      name: SPRs_Gun1_Idle_FRONT_4
       rect:
         serializedVersion: 2
         x: 128
@@ -258,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 939a3aff6d26021e0800000000000000
-      internalID: -2224669540369585863
+      spriteID: d350b21a14e982830800000000000000
+      internalID: 4046658269906404669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_5
+      name: SPRs_Gun1_Idle_FRONT_5
       rect:
         serializedVersion: 2
         x: 160
@@ -279,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84939e019a06ae3f0800000000000000
-      internalID: -870777298693310136
+      spriteID: 82a013b2bbd234df0800000000000000
+      internalID: -197263676767401432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_6
+      name: SPRs_Gun1_Idle_FRONT_6
       rect:
         serializedVersion: 2
         x: 192
@@ -300,14 +288,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ad64b3c75f795a20800000000000000
-      internalID: 3051610237442485666
+      spriteID: 14da3a74f75cde810800000000000000
+      internalID: 1796308976844123457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_7
+      name: SPRs_Gun1_Idle_FRONT_7
       rect:
         serializedVersion: 2
         x: 224
@@ -321,14 +309,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6d09a1e13d97c0a0800000000000000
-      internalID: -6861342669710750355
+      spriteID: ab3b1367835a253b0800000000000000
+      internalID: -5525172130910456902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_8
+      name: SPRs_Gun1_Idle_FRONT_8
       rect:
         serializedVersion: 2
         x: 256
@@ -342,14 +330,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e311b3bc97c818f80800000000000000
-      internalID: -8106043399561604802
+      spriteID: 65ef47a096b6f14e0800000000000000
+      internalID: -2008768809892774314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_9
+      name: SPRs_Gun1_Idle_FRONT_9
       rect:
         serializedVersion: 2
         x: 288
@@ -363,14 +351,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6dd0645fc7bda240800000000000000
-      internalID: 4804698478575934830
+      spriteID: 3ea6fa6f7914af390800000000000000
+      internalID: -7783836885021922589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_10
+      name: SPRs_Gun1_Idle_FRONT_10
       rect:
         serializedVersion: 2
         x: 320
@@ -384,14 +372,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3a8bd96efe9768f0800000000000000
-      internalID: -547294014167348675
+      spriteID: 1e46667e6023507b0800000000000000
+      internalID: -5258741984651746079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_11
+      name: SPRs_Gun1_Idle_FRONT_11
       rect:
         serializedVersion: 2
         x: 352
@@ -405,14 +393,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b4b5a3845be5e6e0800000000000000
-      internalID: -1808780927100930894
+      spriteID: cb95d7e01b48ca220800000000000000
+      internalID: 2498517789270956476
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_12
+      name: SPRs_Gun1_Idle_FRONT_12
       rect:
         serializedVersion: 2
         x: 384
@@ -426,14 +414,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68c9b849c6c250ad0800000000000000
-      internalID: -2736732353697440634
+      spriteID: b89b02b4d37fdc880800000000000000
+      internalID: -8588937071700166261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_13
+      name: SPRs_Gun1_Idle_FRONT_13
       rect:
         serializedVersion: 2
         x: 416
@@ -447,14 +435,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5531e2b934ace2e20800000000000000
-      internalID: 3327819566388482901
+      spriteID: f0f262ff5b602e570800000000000000
+      internalID: 8494359225913716495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterIdleAnimation_14
+      name: SPRs_Gun1_Idle_FRONT_14
       rect:
         serializedVersion: 2
         x: 448
@@ -468,8 +456,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e20d459b57ce3d430800000000000000
-      internalID: 3806646100422873134
+      spriteID: 27e3e74c8aea224b0800000000000000
+      internalID: -5466614957800014222
       vertices: []
       indices: 
       edges: []
