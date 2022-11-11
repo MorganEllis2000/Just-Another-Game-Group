@@ -147,7 +147,7 @@ TextureImporter:
       213: -7471901366843899523
     second: SPR_TutorialArea_TileSet_47
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -168,6 +168,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -177,8 +178,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -206,6 +207,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -245,6 +247,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1276,6 +1302,55 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      SPR_TutorialArea_TileSet_18: -5344916491883118845
+      SPR_TutorialArea_TileSet_42: 6350937345861868349
+      SPR_TutorialArea_TileSet_11: 2886165539773447036
+      SPR_TutorialArea_TileSet_47: -7471901366843899523
+      SPR_TutorialArea_TileSet_21: 249648285001472076
+      SPR_TutorialArea_TileSet_41: -6809010650393431790
+      SPR_TutorialArea_TileSet_31: -740091728931345002
+      SPR_TutorialArea_TileSet_12: -1344860629683862303
+      SPR_TutorialArea_TileSet_4: -6568841055413496505
+      SPR_TutorialArea_TileSet_5: 872133451632455834
+      SPR_TutorialArea_TileSet_46: 5993067786707949920
+      SPR_TutorialArea_TileSet_16: -5166055587999955491
+      SPR_TutorialArea_TileSet_34: 1496667569177756324
+      SPR_TutorialArea_TileSet_43: -8308860581757485670
+      SPR_TutorialArea_TileSet_17: 827835914901191427
+      SPR_TutorialArea_TileSet_8: 3858121836062502497
+      SPR_TutorialArea_TileSet_35: -2003064818294770157
+      SPR_TutorialArea_TileSet_28: -4913770235216390593
+      SPR_TutorialArea_TileSet_33: -2600368872756199109
+      SPR_TutorialArea_TileSet_15: 3292913658331123539
+      SPR_TutorialArea_TileSet_6: -5849974769064846586
+      SPR_TutorialArea_TileSet_10: 8854309664841904926
+      SPR_TutorialArea_TileSet_26: -4093715376513001749
+      SPR_TutorialArea_TileSet_27: -884137299882299116
+      SPR_TutorialArea_TileSet_13: 6740345668275183873
+      SPR_TutorialArea_TileSet_14: -6390295307285877075
+      SPR_TutorialArea_TileSet_23: -1697455797850701881
+      SPR_TutorialArea_TileSet_22: -6868141712300887162
+      SPR_TutorialArea_TileSet_37: 3980431506233997662
+      SPR_TutorialArea_TileSet_0: 9206384143361833508
+      SPR_TutorialArea_TileSet_40: 8668500286718197376
+      SPR_TutorialArea_TileSet_44: -2204903559545033908
+      SPR_TutorialArea_TileSet_24: 794990404696158984
+      SPR_TutorialArea_TileSet_25: -1741416642358810440
+      SPR_TutorialArea_TileSet_7: -272667897297943964
+      SPR_TutorialArea_TileSet_30: 4770586926553220845
+      SPR_TutorialArea_TileSet_29: 3722421640031338194
+      SPR_TutorialArea_TileSet_32: 1548932607902894696
+      SPR_TutorialArea_TileSet_2: 4754141861232886973
+      SPR_TutorialArea_TileSet_38: 6545811613582530957
+      SPR_TutorialArea_TileSet_45: 4002498020736365790
+      SPR_TutorialArea_TileSet_36: 3630990009187468765
+      SPR_TutorialArea_TileSet_9: 983836161160408045
+      SPR_TutorialArea_TileSet_19: -394276618290443878
+      SPR_TutorialArea_TileSet_39: -6288254635437422327
+      SPR_TutorialArea_TileSet_1: -8726444775581522410
+      SPR_TutorialArea_TileSet_3: 2334808910053270941
+      SPR_TutorialArea_TileSet_20: 4279620069173156409
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
