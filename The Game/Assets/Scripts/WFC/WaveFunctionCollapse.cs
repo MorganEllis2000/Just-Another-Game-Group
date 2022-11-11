@@ -45,6 +45,8 @@ namespace WaveFunctionCollaps
                 patternManager.ProcessGrid(valuesManager, this.equalWeights, this.strategyName);
                 core = new WFCCore(this.outputWidth, this.outputHeight, patternManager,this.maxIterations);
                 int[][] wfcOutput = core.CreateOutputGrid();
+                //int[][] wfcOutput;
+
                 tileOutput = new TileMapOutput(valuesManager, this.outputImage);
                 tileOutput.CreateOutput(patternManager,wfcOutput, outputWidth, outputHeight);
             }

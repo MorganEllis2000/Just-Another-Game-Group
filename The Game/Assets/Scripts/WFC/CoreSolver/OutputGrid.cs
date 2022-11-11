@@ -66,10 +66,13 @@ namespace WaveFunctionCollaps
                 return indexPossiblePatternsDict[index];
             return new HashSet<int>();
         }
-
+        
         public Vector2Int GetRandomCell()
         {
+            var rand = new System.Random();
             int randomIndex = UnityEngine.Random.Range(0, indexPossiblePatternsDict.Count);
+            //int randomIndex = rand.Next(indexPossiblePatternsDict.Count);
+            Debug.Log("Random Index: " + randomIndex);
             return GetCoordsFromIndex(randomIndex);
         }
 

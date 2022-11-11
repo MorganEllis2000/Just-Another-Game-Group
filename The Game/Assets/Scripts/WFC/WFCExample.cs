@@ -9,7 +9,9 @@ using WaveFunctionCollaps;
 public class WFCExample : MonoBehaviour
 {
     public Tilemap inputImage;
+    public Tilemap[] inputImageArray;
     public Tilemap outputImage;
+    public Tilemap[] outputImageArray;
     [Tooltip("For tiles usualy set to 1. If tile contain just a color can set to higher value")]
     public int patternSize;
     [Tooltip("How many times algorithm will try creating the output before quiting")]
@@ -27,13 +29,25 @@ public class WFCExample : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreateWFC();
+        //ECreateWFC();
         //CreateTilemap();
         //SaveTilemap();
 
 
     }
     private void Update() {
+        //if (Input.GetKey(KeyCode.H)) {
+        //    CreateWFC();
+        //    CreateTilemap();
+        //}
+
+
+        if (Input.GetKey(KeyCode.H)) {
+            for (int i = 0; i < outputImageArray.Length; i++) {
+                CreateWFCArray(i);
+                CreateTilemap();
+            }
+        }
 
     }
 
@@ -41,6 +55,11 @@ public class WFCExample : MonoBehaviour
     {
         wfc = new WaveFunctionCollapse(this.inputImage, this.outputImage, patternSize, this.outputWidth, this.outputHeight, this.maxIterations, this.equalWeights);
     }
+
+    public void CreateWFCArray(int index) {
+        wfc = new WaveFunctionCollapse(this.inputImageArray[UnityEngine.Random.Range(0, inputImageArray.Length - 1)], this.outputImageArray[index], patternSize, this.outputWidth, this.outputHeight, this.maxIterations, this.equalWeights);
+    }
+
     public void CreateTilemap()
     {
         var startTime = Time.realtimeSinceStartup;

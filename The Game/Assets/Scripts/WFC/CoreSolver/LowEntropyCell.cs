@@ -8,14 +8,17 @@ namespace WaveFunctionCollaps
     public class LowEntropyCell : IComparable<LowEntropyCell>, IEqualityComparer<LowEntropyCell>//, IEquatable<LowEntropyCell>
     {
         public Vector2Int Position { get; set; }
-        public float Entropy { get; set; }
-        private float smallEntropyNoise;
-        public LowEntropyCell(Vector2Int Position, float Entropy)
+        public double Entropy { get; set; }
+        private double smallEntropyNoise;
+        public LowEntropyCell(Vector2Int Position, double Entropy)
         {
             smallEntropyNoise = UnityEngine.Random.Range(0.001f, 0.005f);
+            var rand = new System.Random();
+            //smallEntropyNoise = rand.NextDouble() * 0.004f;
+            //smallEntropyNoise += 0.001f;
             this.Entropy = Entropy + smallEntropyNoise;
+            //Debug.Log("Small Entropy" + smallEntropyNoise);
             this.Position = Position;
-
         }
 
         public int CompareTo(LowEntropyCell other)
@@ -41,5 +44,4 @@ namespace WaveFunctionCollaps
         }
 
     }
-
 }

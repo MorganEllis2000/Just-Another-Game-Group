@@ -21,8 +21,12 @@ namespace WaveFunctionCollaps
         }
         public int SelectSolutionPatternFromFrequency(List<int> possibleValues)
         {
+            var rand = new System.Random();
             List<float> valueFrequenciesFractions = GetListOfWeightsFromIndices(possibleValues);
             float randomValue = Random.Range(0, valueFrequenciesFractions.Sum());
+            //double randomValue = rand.NextDouble() * valueFrequenciesFractions.Sum();
+            //Debug.Log("Random Value: " + randomValue);
+
             float sum = 0;
             int index = 0;
             foreach (var item in valueFrequenciesFractions)

@@ -50,7 +50,7 @@ namespace WaveFunctionCollaps
 
             if (elementIdLowEntropySet == null && outputGrid.CheckIfCellIsCollapsed(cellToPropagatePosition) == false)
             {
-                float entropy = coreHelper.CalculateEntropy(cellToPropagatePosition, outputGrid);
+                double entropy = coreHelper.CalculateEntropy(cellToPropagatePosition, outputGrid);
                 lowestEntropySet.Add(new LowEntropyCell(cellToPropagatePosition, entropy));
 
             }

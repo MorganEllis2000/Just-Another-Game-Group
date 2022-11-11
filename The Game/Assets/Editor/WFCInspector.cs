@@ -13,8 +13,10 @@ public class WFCInspector : Editor
 
         if (GUILayout.Button("Create tilemap"))
         {
-            myScript.CreateWFC();
-            myScript.CreateTilemap();
+            for (int i = 0; i < myScript.outputImageArray.Length; i++) {
+                myScript.CreateWFCArray(i);
+                myScript.CreateTilemap();
+            }
         }
         if (GUILayout.Button("Save tilemap"))
         {
