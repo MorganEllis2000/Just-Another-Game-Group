@@ -48,7 +48,7 @@ TextureImporter:
       213: -3396545638743418671
     second: SPRS_Character_Idle_BACK_14
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -69,6 +69,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -78,8 +79,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -107,6 +108,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -146,6 +148,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
@@ -484,6 +510,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      SPRS_Character_Idle_BACK_11: -5452585836821982159
+      SPRS_Character_Idle_BACK_14: -3396545638743418671
+      SPRS_Character_Idle_BACK_13: -5583647477423903961
+      SPRS_Character_Idle_BACK_8: -1313637133845815588
+      SPRS_Character_Idle_BACK_1: -999313002071262733
+      SPRS_Character_Idle_BACK_4: 3264205996240493039
+      SPRS_Character_Idle_BACK_10: -2434840863741536926
+      SPRS_Character_Idle_BACK_7: 4803624331757777880
+      SPRS_Character_Idle_BACK_12: -3171188204707153412
+      SPRS_Character_Idle_BACK_6: 3454638452413872137
+      SPRS_Character_Idle_BACK_0: -1479155125552710811
+      SPRS_Character_Idle_BACK_3: 3749758988820555399
+      SPRS_Character_Idle_BACK_9: -7452942992125227208
+      SPRS_Character_Idle_BACK_5: -2001940550447470198
+      SPRS_Character_Idle_BACK_2: 1247495087765887698
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

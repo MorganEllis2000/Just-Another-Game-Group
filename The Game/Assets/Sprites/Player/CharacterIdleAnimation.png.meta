@@ -48,7 +48,7 @@ TextureImporter:
       213: 3806646100422873134
     second: CharacterIdleAnimation_14
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -69,6 +69,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -78,8 +79,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -107,6 +108,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -146,6 +148,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
@@ -484,6 +510,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      CharacterIdleAnimation_14: 3806646100422873134
+      CharacterIdleAnimation_2: 4827495299910557804
+      CharacterIdleAnimation_10: -547294014167348675
+      CharacterIdleAnimation_9: 4804698478575934830
+      CharacterIdleAnimation_11: -1808780927100930894
+      CharacterIdleAnimation_4: -2224669540369585863
+      CharacterIdleAnimation_6: 3051610237442485666
+      CharacterIdleAnimation_8: -8106043399561604802
+      CharacterIdleAnimation_3: -2189645046387450467
+      CharacterIdleAnimation_13: 3327819566388482901
+      CharacterIdleAnimation_7: -6861342669710750355
+      CharacterIdleAnimation_5: -870777298693310136
+      CharacterIdleAnimation_1: 4254768270876499784
+      CharacterIdleAnimation_0: 6410720941308904187
+      CharacterIdleAnimation_12: -2736732353697440634
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
