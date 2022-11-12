@@ -48,7 +48,7 @@ TextureImporter:
       213: -5466614957800014222
     second: SPRs_Gun1_Idle_FRONT_14
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -69,6 +69,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -78,8 +79,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -107,6 +108,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -134,6 +136,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -472,6 +498,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      SPRs_Gun1_Idle_FRONT_0: 4034550473895366342
+      SPRs_Gun1_Idle_FRONT_5: -197263676767401432
+      SPRs_Gun1_Idle_FRONT_14: -5466614957800014222
+      SPRs_Gun1_Idle_FRONT_2: 593638318091500359
+      SPRs_Gun1_Idle_FRONT_3: 1627801761580835765
+      SPRs_Gun1_Idle_FRONT_8: -2008768809892774314
+      SPRs_Gun1_Idle_FRONT_10: -5258741984651746079
+      SPRs_Gun1_Idle_FRONT_13: 8494359225913716495
+      SPRs_Gun1_Idle_FRONT_12: -8588937071700166261
+      SPRs_Gun1_Idle_FRONT_11: 2498517789270956476
+      SPRs_Gun1_Idle_FRONT_9: -7783836885021922589
+      SPRs_Gun1_Idle_FRONT_6: 1796308976844123457
+      SPRs_Gun1_Idle_FRONT_4: 4046658269906404669
+      SPRs_Gun1_Idle_FRONT_7: -5525172130910456902
+      SPRs_Gun1_Idle_FRONT_1: -5161128164364426689
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

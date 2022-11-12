@@ -48,7 +48,7 @@ TextureImporter:
       213: -7113444486698814420
     second: SPRS_RockEnemy_Transform_FORWARDS_14
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -69,6 +69,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -78,8 +79,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -107,6 +108,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -146,6 +148,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
@@ -484,6 +510,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      SPRS_RockEnemy_Transform_FORWARDS_11: 4517194475640005027
+      SPRS_RockEnemy_Transform_FORWARDS_2: -4604343025898998348
+      SPRS_RockEnemy_Transform_FORWARDS_3: 8177921292707488627
+      SPRS_RockEnemy_Transform_FORWARDS_1: 7992164727832137044
+      SPRS_RockEnemy_Transform_FORWARDS_0: -696646227660526936
+      SPRS_RockEnemy_Transform_FORWARDS_12: 1776031313043760114
+      SPRS_RockEnemy_Transform_FORWARDS_4: -4951730014515784619
+      SPRS_RockEnemy_Transform_FORWARDS_5: 3549184921599773347
+      SPRS_RockEnemy_Transform_FORWARDS_6: 8181991887290826710
+      SPRS_RockEnemy_Transform_FORWARDS_8: 3144697703293644995
+      SPRS_RockEnemy_Transform_FORWARDS_14: -7113444486698814420
+      SPRS_RockEnemy_Transform_FORWARDS_13: -163114997935926454
+      SPRS_RockEnemy_Transform_FORWARDS_9: 6053541103028200961
+      SPRS_RockEnemy_Transform_FORWARDS_10: -8478538777062071582
+      SPRS_RockEnemy_Transform_FORWARDS_7: -7009309433067330165
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
