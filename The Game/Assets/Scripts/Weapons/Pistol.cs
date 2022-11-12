@@ -46,4 +46,12 @@ public class Pistol : Weapon {
         Reloading = false;
         CanShoot = true;
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision) {
+    //    if (collision.gameObject.CompareTag("Playyer")){
+    //        if (Input.GetKey(KeyCode.F)) {
+    //            WeaponManager.Instance.EquipOneHandedWeapon(this.gameObject);
+    //        }
+    //    }
+    //}
 }

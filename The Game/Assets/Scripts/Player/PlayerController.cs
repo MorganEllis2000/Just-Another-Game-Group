@@ -14,12 +14,18 @@ public enum PlayerDirection {
     BACK
 }
 
+public enum OneHandedWeapons {
+    NONE,
+    PISTOL
+}
+
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance { get; private set; }
 
     protected PlayerDirection playerDirection;
     protected GunDirection gunDirection;
+    protected OneHandedWeapons oneHandedWeapons;
 
     private float _Vertical;
     private float _Horizontal;
@@ -196,5 +202,22 @@ public class PlayerController : MonoBehaviour
 
     public GunDirection SetGunDirection(GunDirection direction) {
         return gunDirection = direction;
+    }
+
+    public void UpdatePlayerOneHandedWeapon() {
+        switch (oneHandedWeapons) {
+            case OneHandedWeapons.NONE:
+                animator.SetInteger("SetOneHandedWeapon", (int)oneHandedWeapons);
+                return;
+            case OneHandedWeapons.PISTOL:
+                animator.SetInteger("SetOneHandedWeapon", (int)oneHandedWeapons);
+                return;
+            default:
+                break;
+        }
+    }
+
+    public OneHandedWeapons SetOneHandedWeapon(OneHandedWeapons weapon) {
+        return oneHandedWeapons = weapon;
     }
 }
