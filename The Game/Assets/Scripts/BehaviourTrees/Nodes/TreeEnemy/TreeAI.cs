@@ -9,6 +9,7 @@ public class TreeAI : MonoBehaviour {
     [SerializeField] private float EnemyMoveSpeed;
     [SerializeField] private Vector3 OriginalPosition;
     [SerializeField] private GameObject branch;
+    public float Health;
 
     private Node topNode;
 
@@ -26,6 +27,10 @@ public class TreeAI : MonoBehaviour {
     }
 
     private void Update() {
-        topNode.Evaluate();
+        if (Health > 0) {
+            topNode.Evaluate();
+        } else {
+            Destroy(this.gameObject);
+        }
     }
 }

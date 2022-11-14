@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2398489879004633372}
   - component: {fileID: 2398489879004633375}
   - component: {fileID: 2398489879004633374}
+  - component: {fileID: -1314669279315722043}
   m_Layer: 0
   m_Name: PistolBullet
   m_TagString: Untagged
@@ -26,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2398489879004633346}
-  m_LocalRotation: {x: -0, y: -0, z: 0.5993164, w: 0.8005122}
+  m_LocalRotation: {x: -0, y: -0, z: 0.877251, w: -0.48003197}
   m_LocalPosition: {x: 1.184, y: -4.535, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -119,3 +120,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &-1314669279315722043
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398489879004633346}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.99999994, y: 1.9999998}
+  m_Direction: 0
