@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Top_Right_Water_Animated
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 5658392120266391485, guid: 61fb1b96e80690e47a25024ae95ba825, type: 3}
+  - {fileID: -6918663745646544831, guid: 61fb1b96e80690e47a25024ae95ba825, type: 3}
+  - {fileID: -4290504924503926691, guid: 61fb1b96e80690e47a25024ae95ba825, type: 3}
+  - {fileID: 1905709503615006035, guid: 61fb1b96e80690e47a25024ae95ba825, type: 3}
+  m_MinSpeed: 1
+  m_MaxSpeed: 1
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 2
