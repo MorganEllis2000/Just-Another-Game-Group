@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Enemy")) {
-            collision.gameObject.GetComponent<TreeAI>().Health -= 30.0f;
+            collision.gameObject.GetComponent<Enemy>().Health -= 30.0f;
             Destroy(this.gameObject);
         }
     }

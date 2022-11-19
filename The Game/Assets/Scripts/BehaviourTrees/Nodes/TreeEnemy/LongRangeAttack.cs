@@ -26,7 +26,7 @@ public class LongRangeAttack : Node
             return NodeState.RUNNING;
         } else if (DistanceOfAiToPlayer() > 15.0f) {
             ReturnToOriginalPos();
-            return NodeState.RUNNING;
+            return NodeState.FAILURE;
         } else {
             return NodeState.FAILURE;
         }       
@@ -41,15 +41,27 @@ public class LongRangeAttack : Node
     }
 
     public void ChasePlayer() {
+        
+        enemyAI.GetComponent<Animator>().SetBool("CanTransform", true);
+        enemyAI.GetComponent<Animator>().SetBool("IsWalking", true);    
         enemyAI.transform.position = Vector2.MoveTowards(enemyAI.transform.position, PlayerController.Instance.gameObject.transform.position, 3 * Time.deltaTime);
     }
 
     public void ReturnToOriginalPos() {
         enemyAI.transform.position = Vector2.MoveTowards(enemyAI.transform.position, originalPosition, 3 * Time.deltaTime);
+        if (Vector2.Distance(enemyAI.transform.position, originalPosition) < 0.1f) {
+            enemyAI.GetComponent<Animator>().SetBool("IsWalking", false);
+            enemyAI.GetComponent<Animator>().SetBool("CanTransform", false);
+        }
     }
 
     public float DistanceOfAiToPlayer() {
         return Vector2.Distance(enemyAI.transform.position, PlayerController.Instance.transform.position);
+
+    }
+
+    public IEnumerator WaitForXSeconds(float seconds) {
+        yield return new WaitForSeconds(seconds);
     }
 
     public IEnumerator WaitForAnimationToFinish() {

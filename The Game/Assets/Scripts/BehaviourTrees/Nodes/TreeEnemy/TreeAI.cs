@@ -9,6 +9,7 @@ public class TreeAI : MonoBehaviour {
     [SerializeField] private float EnemyMoveSpeed;
     [SerializeField] private Vector3 OriginalPosition;
     [SerializeField] private GameObject branch;
+    [SerializeField] private List<Transform> PatrolSpots;
     public float Health;
 
     private Node topNode;
@@ -18,8 +19,9 @@ public class TreeAI : MonoBehaviour {
     }
 
     private void ConstructBehahaviourTree() {
-        CloseRangeAttackNode closeRangeAttackNode = new CloseRangeAttackNode(this.gameObject, EnemyMoveSpeed);
+        CloseRangeAttackNode closeRangeAttackNode = new CloseRangeAttackNode(this.gameObject, OriginalPosition, EnemyMoveSpeed);
         LongRangeAttack longRangeAttack = new LongRangeAttack(this.gameObject, EnemyMoveSpeed, OriginalPosition, branch);
+        PatrolNode patrolNode = new PatrolNode(PatrolSpots, Enemy);
 
         Sequence sequence = new Sequence(new List<Node> { closeRangeAttackNode, longRangeAttack });
 

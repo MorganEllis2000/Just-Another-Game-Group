@@ -17,12 +17,6 @@ public class PatrolNode : Node
     private float startWaitTime = 2f;
 
     public override NodeState Evaluate() {
-        if (DistanceOfAiToPlayer() < 8.0f && IsPatrolling == false && enemyAI.GetComponent<Animator>().GetBool("CanTransform") == false) {
-            enemyAI.GetComponent<Animator>().SetBool("CanTransform", true);
-            PerformCoroutine(WaitForAnimationToFinish());
-            
-        }
-
         WaitTime = startWaitTime;
 
         if(IsPatrolling == true) {

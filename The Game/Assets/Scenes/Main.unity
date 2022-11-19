@@ -2576,7 +2576,7 @@ Transform:
   - {fileID: 1519509106}
   - {fileID: 424056383}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &246139004
 GameObject:
@@ -37721,7 +37721,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &980445629
 GameObject:
@@ -40228,15 +40228,9 @@ Transform:
   - {fileID: 1089943178}
   - {fileID: 649315302}
   - {fileID: 283237302}
-  - {fileID: 1065768726}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1065768726 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5771469620283422512, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-  m_PrefabInstance: {fileID: 5771469621197922342}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1082938830
 GameObject:
   m_ObjectHideFlags: 0
@@ -40358,7 +40352,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1089943177
 GameObject:
@@ -45499,7 +45493,7 @@ RectTransform:
   m_Children:
   - {fileID: 268993142}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -53026,7 +53020,7 @@ Transform:
   - {fileID: 980445630}
   - {fileID: 1251112226}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1519509105
 GameObject:
@@ -56096,7 +56090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2501911884321651335, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.4
+      value: 6.89
       objectReference: {fileID: 0}
     - target: {fileID: 2501911884321651335, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -56145,23 +56139,23 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1008987476}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5771469620283422512, guid: f851a869f8f79dc418edea003e781e20, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5771469620283422512, guid: f851a869f8f79dc418edea003e781e20, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.2368317
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5771469620283422512, guid: f851a869f8f79dc418edea003e781e20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.752174
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5771469620283422512, guid: f851a869f8f79dc418edea003e781e20, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.932907
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5771469620283422512, guid: f851a869f8f79dc418edea003e781e20, type: 3}
       propertyPath: m_LocalRotation.w
@@ -56195,5 +56189,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree
       objectReference: {fileID: 0}
+    - target: {fileID: 5771469620283422526, guid: f851a869f8f79dc418edea003e781e20, type: 3}
+      propertyPath: PatrolSpots.Array.data[0]
+      value: 
+      objectReference: {fileID: 283237302}
+    - target: {fileID: 5771469620283422526, guid: f851a869f8f79dc418edea003e781e20, type: 3}
+      propertyPath: PatrolSpots.Array.data[1]
+      value: 
+      objectReference: {fileID: 649315302}
+    - target: {fileID: 5771469620283422526, guid: f851a869f8f79dc418edea003e781e20, type: 3}
+      propertyPath: PatrolSpots.Array.data[2]
+      value: 
+      objectReference: {fileID: 1089943178}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f851a869f8f79dc418edea003e781e20, type: 3}
