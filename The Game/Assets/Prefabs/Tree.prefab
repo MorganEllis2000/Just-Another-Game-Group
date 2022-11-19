@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3343055794491879260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7053207661173450114}
+  m_Layer: 0
+  m_Name: ThorwPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7053207661173450114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343055794491879260}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.061, y: -1.181, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5771469620283422512}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5771469620283422515
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +44,7 @@ GameObject:
   - component: {fileID: 5771469620283422526}
   - component: {fileID: 5771469620283422513}
   - component: {fileID: 5771469620283422527}
+  - component: {fileID: 2074033642}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Enemy
@@ -28,10 +59,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5771469620283422515}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.2368317, y: 7.752174, z: 19.932907}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 7053207661173450114}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112,7 +144,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5771469620283422515}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36a915b4f08eb5c49a6ad26230784398, type: 3}
   m_Name: 
@@ -121,6 +153,10 @@ MonoBehaviour:
   EnemyMoveSpeed: 2.18
   OriginalPosition: {x: 5.2368317, y: 7.752174, z: 19.932907}
   branch: {fileID: 8198665312710759532, guid: 7e3714e55a7e86b42b1e23d053c53949, type: 3}
+  PatrolSpots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Health: 100
 --- !u!50 &5771469620283422513
 Rigidbody2D:
@@ -183,3 +219,21 @@ PolygonCollider2D:
       - {x: 0.3125, y: -0.375}
       - {x: 0.5, y: -0.5625}
       - {x: 0.4375, y: -0.5625}
+--- !u!114 &2074033642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771469620283422515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39715461e9907a4986d9317732bfb69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 110
+  OriginalPosition: {x: 2, y: 10, z: 0}
+  CanAttack: 0
+  CanMove: 0
+  branch: {fileID: 8198665312710759532, guid: 7e3714e55a7e86b42b1e23d053c53949, type: 3}
+  ThrowPoint: {fileID: 3343055794491879260}
