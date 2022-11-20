@@ -483,6 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 5.1
+  Health: 100
   isDashing: 0
   dashingPower: 21.6
   dashingTime: 0.5

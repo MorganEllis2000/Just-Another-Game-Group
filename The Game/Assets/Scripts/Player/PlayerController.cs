@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     [Range(0f, 30f)]
     [SerializeField] protected float runSpeed = 0.0f;
 
+    [Range(0f, 30f)]
+    [SerializeField] protected float Health = 100;
+
     protected Rigidbody2D rigidBody2D;
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
@@ -219,5 +222,16 @@ public class PlayerController : MonoBehaviour
 
     public OneHandedWeapons SetOneHandedWeapon(OneHandedWeapons weapon) {
         return oneHandedWeapons = weapon;
+    }
+
+    public void TakeDamage(float damage) {
+        Health -= damage;
+        StartCoroutine(ChangeSpriteColour(0.2f));
+    }
+
+    public IEnumerator ChangeSpriteColour(float seconds) {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(seconds);
+        spriteRenderer.color = Color.white;
     }
 }

@@ -18,6 +18,14 @@ public class Enemy : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
     [Range(50, 300)]
     public float Health;
+
+    [Range(0.1f, 10f)]
+    [SerializeField] protected float ShortRangeAttackRange;
+    [Range(0.1f, 30f)]
+    [SerializeField] protected float LongRangeAttackRange;
+    [Range(0.1f, 30f)]
+    [SerializeField] protected float TransformationRange;
+
     [SerializeField] protected Vector3 OriginalPosition;
     [SerializeField] protected bool CanAttack = false;
     [SerializeField] protected bool CanMove = false;

@@ -7,6 +7,8 @@ public class TreeAI : MonoBehaviour {
 
     [Range(0.1f, 10f)]
     [SerializeField] private float EnemyMoveSpeed;
+
+
     [SerializeField] private Vector3 OriginalPosition;
     [SerializeField] private GameObject branch;
     [SerializeField] private List<Transform> PatrolSpots;

@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : Enemy
+public class Rock : Enemy
 {
-    [SerializeField] private GameObject branch;
-    [SerializeField] private GameObject ThrowPoint;
+
+    private GameObject CloseRangeCollider;
 
     void Start()
     {
         animator = this.gameObject.GetComponent<Animator>();
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+        CloseRangeCollider = this.gameObject.transform.GetChild(0).gameObject;
     }
 
+    void Update() {
+        if (Health > 0) {
 
-    void Update()
-    {
-        if(Health > 0) {
-
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("A_TreeIdle_FRONT") && DistanceOfAiToPlayer() > TransformationRange) {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("IDLE") && DistanceOfAiToPlayer() > TransformationRange) {
                 CanAttack = false;
             }
 
@@ -33,16 +32,18 @@ public class Tree : Enemy
                 UpdateEnemyDirection(spriteRenderer);
 
                 if (DistanceOfAiToPlayer() < ShortRangeAttackRange) {
+                    if (animator.GetBool("CanAttackClose") == false && animator.GetBool("IsThrowing") == false) {
+                        ChasePlayer();
+                    }
+
                     if (CanAttack == true) {
                         StartCoroutine(ShortRangeAttack());
                     }
                 } else if (DistanceOfAiToPlayer() < LongRangeAttackRange && DistanceOfAiToPlayer() > 6.0f) {
-                    if(animator.GetBool("IsThrowing") == false) {
-                        StopCoroutine(LongRangeAttack());
-                        StopCoroutine(ShortRangeAttack());
+                    if (animator.GetBool("IsThrowing") == false && animator.GetBool("CanAttackClose") == false) {
                         ChasePlayer();
                     }
-                    
+
                     if (CanAttack == true) {
                         StartCoroutine(LongRangeAttack());
                     }
@@ -65,7 +66,7 @@ public class Tree : Enemy
         CanAttack = false;
         Debug.Log("Long Range Attacking Player");
         animator.SetBool("IsThrowing", true);
-        GameObject tempBranch = GameObject.Instantiate(branch, ThrowPoint.transform.position, ThrowPoint.transform.rotation);
+        //GameObject tempBranch = GameObject.Instantiate(branch, ThrowPoint.transform.position, ThrowPoint.transform.rotation);
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("IsThrowing", false);
         yield return new WaitForSeconds(6.0f);
@@ -74,8 +75,11 @@ public class Tree : Enemy
 
     public IEnumerator ShortRangeAttack() {
         CanAttack = false;
-        Debug.Log("Attacking Player");
-        yield return new WaitForSeconds(6.0f);
+        Debug.Log("Short Range Attacking Player");
+        animator.SetBool("CanAttackClose", true);
+        yield return new WaitForSeconds(1.5f);
+        animator.SetBool("CanAttackClose", false);
+        yield return new WaitForSeconds(2.5f);
         CanAttack = true;
     }
 
@@ -84,4 +88,6 @@ public class Tree : Enemy
         CanMove = true;
         CanAttack = true;
     }
+
+    
 }

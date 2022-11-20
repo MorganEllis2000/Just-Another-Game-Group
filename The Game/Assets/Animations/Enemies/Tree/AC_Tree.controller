@@ -361,31 +361,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsWalking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: CanTransformBack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: SetEnemyDirection
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsThrowing
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -413,22 +413,22 @@ AnimatorStateMachine:
     m_Position: {x: -270, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4644924561397573747}
-    m_Position: {x: -520, y: 310, z: 0}
+    m_Position: {x: -520, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1846529595942736086}
-    m_Position: {x: -270, y: 270, z: 0}
+    m_Position: {x: -270, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4829720953221775890}
     m_Position: {x: 30, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8960103395986562894}
-    m_Position: {x: -520, y: 240, z: 0}
+    m_Position: {x: -520, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8809137329677593909}
-    m_Position: {x: -520, y: 420, z: 0}
+    m_Position: {x: -520, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4560919727390178880}
-    m_Position: {x: -520, y: 150, z: 0}
+    m_Position: {x: -520, y: 120, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
