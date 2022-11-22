@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
 
+    
+
     // DASH VARIABLES
 
     protected bool canDash = true;
@@ -78,38 +80,46 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDashing == true) {
-            return;
-        }
+        if(Health > 0) {
+            if (isDashing == true) {
+                return;
+            }
 
-        _Horizontal = Input.GetAxisRaw("Horizontal");
-        _Vertical = Input.GetAxisRaw("Vertical");
+            _Horizontal = Input.GetAxisRaw("Horizontal");
+            _Vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKey(KeyCode.LeftShift) && canDash == true) {
-            StartCoroutine(Dash());
+            if (Input.GetKey(KeyCode.LeftShift) && canDash == true) {
+                StartCoroutine(Dash());
+            }
         }
     }
 
     private void FixedUpdate() {
-        if(isDashing == true) {
-            return;
-        }
 
-        if (_Horizontal != 0 || _Vertical != 0) {
-            animator.SetBool("IsRunning", true);
+        if (Health > 0) {
+            if (isDashing == true) {
+                return;
+            }
+
+            if (_Horizontal != 0 || _Vertical != 0) {
+                animator.SetBool("IsRunning", true);
+            } else {
+                SetGunDirection(GunDirection.NONE);
+                animator.SetBool("IsRunning", false);
+            }
+
+            if (_Horizontal != 0 && _Vertical != 0) {
+                _Horizontal *= _moveLimiter;
+                _Vertical *= _moveLimiter;
+            }
+
+            rigidBody2D.velocity = new Vector2(_Horizontal * runSpeed, _Vertical * runSpeed);
+
+            ChangePlayerSprite();
         } else {
-            SetGunDirection(GunDirection.NONE);
-            animator.SetBool("IsRunning", false);
+            Destroy(this.gameObject);
         }
 
-        if (_Horizontal != 0 && _Vertical != 0) {
-            _Horizontal *= _moveLimiter;
-            _Vertical *= _moveLimiter;
-        }
-
-        rigidBody2D.velocity = new Vector2(_Horizontal * runSpeed, _Vertical * runSpeed);
-
-        ChangePlayerSprite();
     }
 
     private IEnumerator Dash() {
