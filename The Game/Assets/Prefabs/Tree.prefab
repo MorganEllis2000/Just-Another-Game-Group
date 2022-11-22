@@ -106,7 +106,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 0d553df77053d374dbcbafe611b24561, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -151,8 +151,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 5771469620283422515}
   EnemyMoveSpeed: 2.18
-  ShortRangeAttackRange: 0
-  LongRangeAttackRange: 0
   OriginalPosition: {x: 5.2368317, y: 7.752174, z: 19.932907}
   branch: {fileID: 8198665312710759532, guid: 7e3714e55a7e86b42b1e23d053c53949, type: 3}
   PatrolSpots:
@@ -180,7 +178,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &5771469620283422527
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -236,7 +234,7 @@ MonoBehaviour:
   Health: 110
   ShortRangeAttackRange: 3
   LongRangeAttackRange: 15
-  TransformationRange: 0
+  TransformationRange: 10
   OriginalPosition: {x: 2, y: 10, z: 0}
   CanAttack: 0
   CanMove: 0
