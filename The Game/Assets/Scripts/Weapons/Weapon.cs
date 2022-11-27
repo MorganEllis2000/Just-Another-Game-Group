@@ -16,8 +16,9 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] protected Transform FirePoint; 
 
-    protected void InstatiateAmmo(GameObject ammo) {
+    protected void InstatiatePistolAmmo(Bullet ammo) {
         ammo.transform.rotation = FirePoint.rotation;
         Instantiate(ammo, FirePoint.position, FirePoint.rotation);
+        ammo.target = GunRotate.Instance.CrossHair.transform.position;
     }
 }

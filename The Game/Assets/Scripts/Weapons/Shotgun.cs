@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class Pistol : Weapon {
-
+public class Shotgun : Weapon
+{
     [SerializeField] private GameObject ammo;
 
     private void Start() {
@@ -15,7 +13,7 @@ public class Pistol : Weapon {
     }
 
     private void Update() {
-        if(CurrentAmmo > MaxAmmo) {
+        if (CurrentAmmo > MaxAmmo) {
             CurrentAmmo = MaxAmmo;
         }
 
@@ -23,7 +21,7 @@ public class Pistol : Weapon {
             Debug.Log("Shooting");
             Debug.Log("Current Ammo " + CurrentAmmo);
             CurrentAmmo--;
-            StartCoroutine("FireRate");      
+            StartCoroutine("FireRate");
         } else if (CurrentAmmo <= 0) {
             Debug.Log("Reloading...");
             StartCoroutine("Reload");
@@ -35,7 +33,7 @@ public class Pistol : Weapon {
         //InstatiatePistolAmmo(ammo.GetComponent<Bullet>());
 
         GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
-        Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 15, ForceMode2D.Impulse);
+        Bullet.GetComponent<Rigidbody2D>().AddForce(-FirePoint.up * 15, ForceMode2D.Impulse);
 
 
         //Ray ray = Camera.main.ScreenPointToRay(GunRotate.Instance.CrossHair.transform.position);
@@ -60,12 +58,4 @@ public class Pistol : Weapon {
         Reloading = false;
         CanShoot = true;
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision) {
-    //    if (collision.gameObject.CompareTag("Playyer")){
-    //        if (Input.GetKey(KeyCode.F)) {
-    //            WeaponManager.Instance.EquipOneHandedWeapon(this.gameObject);
-    //        }
-    //    }
-    //}
 }

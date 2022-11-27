@@ -4,16 +4,38 @@ using UnityEngine;
 
 public class GunRotate : MonoBehaviour
 {
+    public static GunRotate Instance { get; private set; }
+
     public PlayerController controller;
+    public GameObject CrossHair;
+
+
+    private void Awake() {
+
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+        }
+
+        Instance = this;
+    }
+
+    private void Update() {
+        //MoveCrosshair();
+    }
 
     private void FixedUpdate() {
-        Vector3 diffrence = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        diffrence.Normalize();
+        Vector3 diffrence = Camera.main.ScreenToWorldPoint(Input.mousePosition) - CrossHair.transform.position;
+        if (diffrence.magnitude > 0.0f) {
+            diffrence.Normalize();
+            diffrence *= 5f;
+            CrossHair.transform.localPosition = diffrence;
+        }
+        //diffrence.Normalize();
 
         float rotaionZ = Mathf.Atan2(diffrence.y, diffrence.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotaionZ);
 
-        if(transform.eulerAngles.z >= 0 && transform.eulerAngles.z <= 89) {
+        if (transform.eulerAngles.z >= 0 && transform.eulerAngles.z <= 89) {
             controller.SetGunDirection(GunDirection.NE);
             controller.SetPlayerDirection(PlayerDirection.BACK);
             if (WeaponManager.Instance.CurrentlyEquippedWeapon != null) {
@@ -41,6 +63,16 @@ public class GunRotate : MonoBehaviour
             if (WeaponManager.Instance.CurrentlyEquippedWeapon != null) {
                 WeaponManager.Instance.CurrentlyEquippedWeapon.gameObject.GetComponent<SpriteRenderer>().flipY = true;
             }
+        }
+    }
+
+    public void MoveCrosshair() {
+        Vector3 aim = new Vector3(Input.GetAxis("MouseX"), Input.GetAxis("MouseY"), 0.0f);
+
+        if(aim.magnitude > 0.0f) {
+            aim.Normalize();
+            aim *= 1.5f;
+            CrossHair.transform.localPosition = aim;
         }
     }
 }

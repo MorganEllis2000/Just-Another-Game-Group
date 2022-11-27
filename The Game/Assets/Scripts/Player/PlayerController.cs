@@ -38,7 +38,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected float runSpeed = 0.0f;
 
     [Range(0f, 30f)]
-    [SerializeField] protected float Health = 100;
+    [SerializeField] public float Health = 100;
+
+    public float Oxygen;
 
     protected Rigidbody2D rigidBody2D;
     protected SpriteRenderer spriteRenderer;
