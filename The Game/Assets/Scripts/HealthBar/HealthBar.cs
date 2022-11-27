@@ -1,21 +1,17 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-//using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
-//public class HealthBar : MonoBehaviour
-//{
-//    public Slider slider;
+public class HealthBar : MonoBehaviour {
+    public Slider slider;
 
-//    public void SetMaxHealth(int health)
-//    {
-//    slider.maxvalue = health;
-//        slider.value = health;
-//    }
+    private void Start() {
+        slider.maxValue = PlayerController.Instance.Health;
+        slider.value = PlayerController.Instance.Health;
+    }
 
-
-//    public void SetHealth(int health) 
-//    {
-//        slider.value = health;
-//    }
-//}
+    private void Update() {
+        slider.value = PlayerController.Instance.Health;
+    }
+}
