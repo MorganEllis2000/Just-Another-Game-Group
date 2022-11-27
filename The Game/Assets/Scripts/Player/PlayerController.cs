@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     [Range(0f, 30f)]
     [SerializeField] public float Health = 100;
 
+    public float MaxOxygen;
     public float Oxygen;
 
     protected Rigidbody2D rigidBody2D;
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
         rigidBody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        Oxygen = MaxOxygen;
     }
 
     // Update is called once per frame
@@ -93,6 +95,10 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift) && canDash == true) {
                 StartCoroutine(Dash());
             }
+        }
+
+        if(Oxygen > MaxOxygen) {
+            Oxygen = MaxOxygen;
         }
     }
 
