@@ -27,6 +27,7 @@ public class WeaponPickup : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.F)) {
             WeaponManager.Instance.EquipOneHandedWeapon(WeaponToEquip);
+            WeaponManager.Instance.Weapons.Add(WeaponToEquip);
             this.gameObject.SetActive(false);
         }
     }
