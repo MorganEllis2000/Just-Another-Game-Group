@@ -10757,7 +10757,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1844663233}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -15973,7 +15973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4790780132804161520, guid: 7f9ce501cedde124cbb53efd8660d8c7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213288724143142769, guid: 7f9ce501cedde124cbb53efd8660d8c7, type: 3}
       propertyPath: OriginalPosition.x
@@ -45982,7 +45982,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1844663233}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -57809,8 +57809,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
-  - {fileID: 1287725623}
   - {fileID: 387094673}
+  - {fileID: 1287725623}
   - {fileID: 809504406}
   m_Father: {fileID: 1310841793}
   m_RootOrder: 1
@@ -58138,18 +58138,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2074033642, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: TransformationRange
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074033642, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: LongRangeAttackRange
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3343055794491879260, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: m_Name
-      value: ThrowPoint
-      objectReference: {fileID: 0}
     - target: {fileID: 5771469620283422512, guid: f851a869f8f79dc418edea003e781e20, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -58197,10 +58185,6 @@ PrefabInstance:
     - target: {fileID: 5771469620283422515, guid: f851a869f8f79dc418edea003e781e20, type: 3}
       propertyPath: m_Name
       value: Tree
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771469620283422515, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5771469620283422526, guid: f851a869f8f79dc418edea003e781e20, type: 3}
       propertyPath: PatrolSpots.Array.data[0]
