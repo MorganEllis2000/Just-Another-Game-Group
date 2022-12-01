@@ -16,7 +16,8 @@ public class Tree : Enemy
 
     void Update()
     {
-        if(Health > 0) {
+        UpdateTargetPosition();
+        if (Health > 0) {
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("A_TreeIdle_FRONT") && DistanceOfAiToPlayer() > TransformationRange) {
                 CanAttack = false;

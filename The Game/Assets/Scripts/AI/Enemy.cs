@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public enum EnemyDirection {
     NE,
@@ -30,6 +31,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected bool CanAttack = false;
     [SerializeField] protected bool CanMove = false;
 
+    NavMeshAgent agent;
+    public Vector3 target;
+
+    private void Awake() {
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+    }
+
     void Start()
     {
         
@@ -38,7 +48,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void CheckEnemyDirection() {
@@ -76,15 +86,21 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void UpdateTargetPosition() {
+        target = PlayerController.Instance.transform.position;
+    }
+
 
     public void ChasePlayer() {
-        this.transform.position = Vector2.MoveTowards(this.transform.position, PlayerController.Instance.gameObject.transform.position, 3 * Time.deltaTime);
+        //this.transform.position = Vector2.MoveTowards(this.transform.position, PlayerController.Instance.gameObject.transform.position, 3 * Time.deltaTime);
+        agent.SetDestination(new Vector3(target.x, target.y, transform.position.z));
         animator.SetBool("IsWalking", true);
         animator.SetBool("CanTransformBack", false);
     }
 
     public void ReturnToOriginalPos() {
-        this.transform.position = Vector2.MoveTowards(this.transform.position, OriginalPosition, 3 * Time.deltaTime);
+        //this.transform.position = Vector2.MoveTowards(this.transform.position, OriginalPosition, 3 * Time.deltaTime);
+        agent.SetDestination(new Vector3(OriginalPosition.x, OriginalPosition.y, transform.position.z));
         if (Vector2.Distance(this.transform.position, OriginalPosition) < 0.1f) {
             this.GetComponent<Animator>().SetBool("IsWalking", false);
             this.GetComponent<Animator>().SetBool("CanTransform", false);
