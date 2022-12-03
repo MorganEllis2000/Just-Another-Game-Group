@@ -15,6 +15,9 @@ public class Rock : Enemy
     }
 
     void Update() {
+        UpdateTargetPosition();
+
+
         if (Health > 0) {
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("IDLE") && DistanceOfAiToPlayer() > TransformationRange) {
