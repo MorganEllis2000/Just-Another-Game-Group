@@ -127,7 +127,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5771469620283422515}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ec3f7461faa9b94b834d7e55b67433c, type: 2}
   m_CullingMode: 0
@@ -179,7 +179,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!60 &5771469620283422527
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -234,7 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 110
   ShortRangeAttackRange: 3
-  LongRangeAttackRange: 15
+  MinLongRangeAttackRange: 6
+  MaxLongRangeAttackRange: 15
   TransformationRange: 10
   OriginalPosition: {x: 2, y: 10, z: 0}
   CanAttack: 0

@@ -27,15 +27,15 @@ public class PlayerController : MonoBehaviour
     protected GunDirection gunDirection;
     protected OneHandedWeapons oneHandedWeapons;
 
-    private float _Vertical;
-    private float _Horizontal;
+    public float _Vertical;
+    public float _Horizontal;
 
 
     private float _moveLimiter = 0.7f;
 
     [Tooltip("This describes how fast the player will move")]
     [Range(0f, 30f)]
-    [SerializeField] protected float runSpeed = 0.0f;
+    [SerializeField] public float runSpeed = 0.0f;
 
     [Range(0f, 30f)]
     [SerializeField] public float Health = 100;
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     public bool IsTalking = false;
 
-    protected Rigidbody2D rigidBody2D;
+    public Rigidbody2D rigidBody2D;
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
 
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     // DASH VARIABLES
 
-    protected bool canDash = true;
+    public bool canDash = true;
     public bool isDashing;
     [Tooltip("This describes the strength of the players dash")]
     [Range(0f, 30f)]
@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator Dash() {
+    public IEnumerator Dash() {
         canDash = false;
         isDashing = true;
         float originalGravity = rigidBody2D.gravityScale;
