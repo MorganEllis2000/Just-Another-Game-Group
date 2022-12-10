@@ -27,15 +27,15 @@ public class PlayerController : MonoBehaviour
     protected GunDirection gunDirection;
     protected OneHandedWeapons oneHandedWeapons;
 
-    private float _Vertical;
-    private float _Horizontal;
+    public float _Vertical;
+    public float _Horizontal;
 
 
     private float _moveLimiter = 0.7f;
 
     [Tooltip("This describes how fast the player will move")]
     [Range(0f, 30f)]
-    [SerializeField] protected float runSpeed = 0.0f;
+    [SerializeField] public float runSpeed = 0.0f;
 
     [Range(0f, 30f)]
     [SerializeField] public float Health = 100;
@@ -43,7 +43,9 @@ public class PlayerController : MonoBehaviour
     public float MaxOxygen;
     public float Oxygen;
 
-    protected Rigidbody2D rigidBody2D;
+    public bool IsTalking = false;
+
+    public Rigidbody2D rigidBody2D;
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
 
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     // DASH VARIABLES
 
-    protected bool canDash = true;
+    public bool canDash = true;
     public bool isDashing;
     [Tooltip("This describes the strength of the players dash")]
     [Range(0f, 30f)]
@@ -84,16 +86,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Health > 0) {
-            if (isDashing == true) {
-                return;
-            }
+        if(IsTalking == false) {
+            if (Health > 0) {
+                if (isDashing == true) {
+                    return;
+                }
 
-            _Horizontal = Input.GetAxisRaw("Horizontal");
-            _Vertical = Input.GetAxisRaw("Vertical");
+                _Horizontal = Input.GetAxisRaw("Horizontal");
+                _Vertical = Input.GetAxisRaw("Vertical");
 
-            if (Input.GetKey(KeyCode.LeftShift) && canDash == true) {
-                StartCoroutine(Dash());
+                if (Input.GetKey(KeyCode.LeftShift) && canDash == true) {
+                    StartCoroutine(Dash());
+                }
             }
         }
 
@@ -103,34 +107,34 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        if(IsTalking == false) {
+            if (Health > 0) {
+                if (isDashing == true) {
+                    return;
+                }
 
-        if (Health > 0) {
-            if (isDashing == true) {
-                return;
-            }
+                if (_Horizontal != 0 || _Vertical != 0) {
+                    animator.SetBool("IsRunning", true);
+                } else {
+                    SetGunDirection(GunDirection.NONE);
+                    animator.SetBool("IsRunning", false);
+                }
 
-            if (_Horizontal != 0 || _Vertical != 0) {
-                animator.SetBool("IsRunning", true);
+                if (_Horizontal != 0 && _Vertical != 0) {
+                    _Horizontal *= _moveLimiter;
+                    _Vertical *= _moveLimiter;
+                }
+
+                rigidBody2D.velocity = new Vector2(_Horizontal * runSpeed, _Vertical * runSpeed);
+
+                ChangePlayerSprite();
             } else {
-                SetGunDirection(GunDirection.NONE);
-                animator.SetBool("IsRunning", false);
+                Destroy(this.gameObject);
             }
-
-            if (_Horizontal != 0 && _Vertical != 0) {
-                _Horizontal *= _moveLimiter;
-                _Vertical *= _moveLimiter;
-            }
-
-            rigidBody2D.velocity = new Vector2(_Horizontal * runSpeed, _Vertical * runSpeed);
-
-            ChangePlayerSprite();
-        } else {
-            Destroy(this.gameObject);
         }
-
     }
 
-    private IEnumerator Dash() {
+    public IEnumerator Dash() {
         canDash = false;
         isDashing = true;
         float originalGravity = rigidBody2D.gravityScale;

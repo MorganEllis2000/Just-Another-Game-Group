@@ -37,7 +37,7 @@ public class Tree : Enemy
                     if (CanAttack == true) {
                         StartCoroutine(ShortRangeAttack());
                     }
-                } else if (DistanceOfAiToPlayer() < LongRangeAttackRange && DistanceOfAiToPlayer() > 6.0f) {
+                } else if (DistanceOfAiToPlayer() < MaxLongRangeAttackRange && DistanceOfAiToPlayer() > MinLongRangeAttackRange) {
                     if(animator.GetBool("IsThrowing") == false) {
                         StopCoroutine(LongRangeAttack());
                         StopCoroutine(ShortRangeAttack());
@@ -51,7 +51,7 @@ public class Tree : Enemy
                     StopCoroutine(LongRangeAttack());
                     StopCoroutine(ShortRangeAttack());
                     ChasePlayer();
-                } else if (DistanceOfAiToPlayer() > LongRangeAttackRange) {
+                } else if (DistanceOfAiToPlayer() > MaxLongRangeAttackRange) {
                     StopCoroutine(LongRangeAttack());
                     StopCoroutine(ShortRangeAttack());
                     ReturnToOriginalPos();

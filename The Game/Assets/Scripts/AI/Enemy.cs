@@ -23,7 +23,9 @@ public class Enemy : MonoBehaviour
     [Range(0.1f, 10f)]
     [SerializeField] protected float ShortRangeAttackRange;
     [Range(0.1f, 30f)]
-    [SerializeField] protected float LongRangeAttackRange;
+    [SerializeField] protected float MinLongRangeAttackRange;
+    [Range(0.1f, 30f)]
+    [SerializeField] protected float MaxLongRangeAttackRange;
     [Range(0.1f, 30f)]
     [SerializeField] protected float TransformationRange;
 
@@ -100,7 +102,7 @@ public class Enemy : MonoBehaviour
 
     public void ReturnToOriginalPos() {
         //this.transform.position = Vector2.MoveTowards(this.transform.position, OriginalPosition, 3 * Time.deltaTime);
-        agent.SetDestination(new Vector3(OriginalPosition.x, OriginalPosition.y, transform.position.z));
+        agent.SetDestination(new Vector3(OriginalPosition.x + 1, OriginalPosition.y, transform.position.z));
         if (Vector2.Distance(this.transform.position, OriginalPosition) < 0.1f) {
             this.GetComponent<Animator>().SetBool("IsWalking", false);
             this.GetComponent<Animator>().SetBool("CanTransform", false);

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor.Rendering;
+using System.ComponentModel;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class DialogueManager : MonoBehaviour
 
     public bool bHasDialogueFinished = false; // Bool that tracks if the dialogue has finished.
 
+    public Dialogue dialogue1;
+    public bool dialogue1Activated = false;
+
     /// <summary>
     /// Create an instance of the dialogue manager
     /// </summary>
@@ -44,6 +48,33 @@ public class DialogueManager : MonoBehaviour
         Sentences = new Queue<string>();
     }
 
+    public float timer = 0f;
+    public string CurrentTxtFileName = null;
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Space) && DialoguePanel.activeSelf) {
+            DisplayNextSentence();
+        }
+
+        timer += Time.deltaTime;
+
+        if (PlayerController.Instance.Health < 50 && PlayerController.Instance.Oxygen < PlayerController.Instance.MaxOxygen / 2 && dialogue1Activated == false) {
+            timer = 0;
+            StartDialogue(dialogue1);
+            dialogue1Activated = true;
+        }
+
+        if (timer >= 3.0f && CurrentTxtFileName == "Dialogue_50%HealthOxygen") {
+            DisplayNextSentence();
+            timer = 0;
+        }
+    }
+
+    public IEnumerator HasLessThan50HealthOxygen() {
+        DisplayNextSentence();
+        yield return new WaitForSeconds(3.0f);
+    }
+
     public void StartDialogue(Dialogue dialogue) {
         DialoguePanel.SetActive(true);
         Names = new Queue<string>();
@@ -58,6 +89,7 @@ public class DialogueManager : MonoBehaviour
         Names.Clear();
         Sentences.Clear();
         ParseTextFile(dialogue);
+        CurrentTxtFileName = CurrentFileName(dialogue);
 
         DisplayNextSentence();
     }
@@ -102,6 +134,9 @@ public class DialogueManager : MonoBehaviour
         slNames.Clear();
         TempSentences = null;
 
+        PlayerController.Instance.IsTalking = false;
+        Time.timeScale = 1;
+
         //animator.SetBool("bIsOpen", false);
         //bHasDialogueFinished = true;
     }
@@ -112,6 +147,10 @@ public class DialogueManager : MonoBehaviour
     /// <param name="finished"></param>
     public void SetDialogueFinished(bool finished) {
         bHasDialogueFinished = finished;
+    }
+
+    public string CurrentFileName(Dialogue dialogue) {
+        return dialogue.Text.name.ToString();
     }
 
     /// <summary>
