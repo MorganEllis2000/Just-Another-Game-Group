@@ -224,8 +224,9 @@ MonoBehaviour:
   LongRangeAttackRange: 15
   TransformationRange: 10
   OriginalPosition: {x: 0, y: 0, z: 0}
-  CanAttack: 0
-  CanMove: 0
+  CanAttack: 1
+  CanMove: 1
+  target: {x: 0, y: 0, z: 0}
 --- !u!60 &1674546862164607028
 PolygonCollider2D:
   m_ObjectHideFlags: 0

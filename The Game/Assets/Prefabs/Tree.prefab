@@ -236,7 +236,8 @@ MonoBehaviour:
   LongRangeAttackRange: 15
   TransformationRange: 10
   OriginalPosition: {x: 2, y: 10, z: 0}
-  CanAttack: 0
-  CanMove: 0
+  CanAttack: 1
+  CanMove: 1
+  target: {x: 0, y: 0, z: 0}
   branch: {fileID: 8198665312710759532, guid: 7e3714e55a7e86b42b1e23d053c53949, type: 3}
   ThrowPoint: {fileID: 3343055794491879260}
