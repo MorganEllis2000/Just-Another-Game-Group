@@ -15,6 +15,9 @@ public class Rock : Enemy
     }
 
     void Update() {
+        UpdateTargetPosition();
+
+
         if (Health > 0) {
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("IDLE") && DistanceOfAiToPlayer() > TransformationRange) {
@@ -39,7 +42,7 @@ public class Rock : Enemy
                     if (CanAttack == true) {
                         StartCoroutine(ShortRangeAttack());
                     }
-                } else if (DistanceOfAiToPlayer() < LongRangeAttackRange && DistanceOfAiToPlayer() > 6.0f) {
+                } else if (DistanceOfAiToPlayer() < MaxLongRangeAttackRange && DistanceOfAiToPlayer() > MinLongRangeAttackRange) {
                     if (animator.GetBool("IsThrowing") == false && animator.GetBool("CanAttackClose") == false) {
                         ChasePlayer();
                     }
@@ -51,7 +54,7 @@ public class Rock : Enemy
                     StopCoroutine(LongRangeAttack());
                     StopCoroutine(ShortRangeAttack());
                     ChasePlayer();
-                } else if (DistanceOfAiToPlayer() > LongRangeAttackRange) {
+                } else if (DistanceOfAiToPlayer() > MaxLongRangeAttackRange) {
                     StopCoroutine(LongRangeAttack());
                     StopCoroutine(ShortRangeAttack());
                     ReturnToOriginalPos();
