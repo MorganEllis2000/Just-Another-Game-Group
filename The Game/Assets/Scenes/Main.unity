@@ -58292,6 +58292,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree
       objectReference: {fileID: 0}
+    - target: {fileID: 5771469620283422515, guid: f851a869f8f79dc418edea003e781e20, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5771469620283422524, guid: f851a869f8f79dc418edea003e781e20, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5771469620283422526, guid: f851a869f8f79dc418edea003e781e20, type: 3}
       propertyPath: PatrolSpots.Array.data[0]
       value: 
