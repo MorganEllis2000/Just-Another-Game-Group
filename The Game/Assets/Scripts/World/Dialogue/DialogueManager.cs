@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+#if UNITY_EDITOR
 using UnityEditor.Rendering;
+#endif
 using System.ComponentModel;
 
 public class DialogueManager : MonoBehaviour

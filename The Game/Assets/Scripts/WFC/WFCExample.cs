@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using WaveFunctionCollaps;
 
 public class WFCExample : MonoBehaviour
 {
+    public static WFCExample Instance { get; private set; }
+
     public Tilemap inputImage;
     public Tilemap[] inputImageArray;
     public Tilemap outputImage;
@@ -26,11 +30,22 @@ public class WFCExample : MonoBehaviour
     public string tileMapName = null;
     WaveFunctionCollapse wfc;
 
+    public RoomManager currentRoom;
+
+    private void Awake() {
+
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+        }
+
+        Instance = this;
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
-        //ECreateWFC();
-        //CreateTilemap();
+        GenerateWFC();
         //SaveTilemap();
 
 
@@ -67,6 +82,13 @@ public class WFCExample : MonoBehaviour
         Debug.Log("Time to generate tile map: " + (Time.realtimeSinceStartup - startTime));
     }
 
+    public void GenerateWFC() {
+        for (int i = 0; i < outputImageArray.Length; i++) {
+            CreateWFCArray(i);
+            CreateTilemap();
+        }
+    }
+
     public void SaveTilemap()
     {
         var output = wfc.GetOutputTileMap();
@@ -75,7 +97,7 @@ public class WFCExample : MonoBehaviour
             outputImage = output;
             GameObject objectToSave = outputImage.gameObject;
 
-            PrefabUtility.SaveAsPrefabAsset(objectToSave, "Assets/Resources/" + tileMapName + ".prefab");
+            //PrefabUtility.SaveAsPrefabAsset(objectToSave, "Assets/Resources/" + tileMapName + ".prefab");
             tileMapName = null;
         }
     }

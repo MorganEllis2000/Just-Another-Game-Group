@@ -79,7 +79,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1945529700
@@ -243,7 +243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2501911882654116597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.052, y: 0, z: 0}
+  m_LocalPosition: {x: 0.64, y: -0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2501911884607491635}
@@ -514,10 +514,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d661ad8510b12e544bf141ae61dfc224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Vertical: 0
+  _Horizontal: 0
   runSpeed: 5.1
   Health: 100
-  MaxOxygen: 300
+  MaxOxygen: 25
   Oxygen: 0
+  IsTalking: 0
+  rigidBody2D: {fileID: 0}
+  canDash: 1
   isDashing: 0
   dashingPower: 21.6
   dashingTime: 0.5
@@ -729,7 +734,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2501911884607491636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.647, y: -0.186, z: 0}
+  m_LocalPosition: {x: 0.15, y: -0.04, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 0}
   m_Children:
   - {fileID: 2501911883877181804}
@@ -833,7 +838,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4647808881616226596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.75, y: -0.096, z: 0}
+  m_LocalPosition: {x: 0.57, y: -0.132, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2087394891}

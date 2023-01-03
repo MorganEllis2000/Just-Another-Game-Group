@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Tree : Enemy
 {
@@ -61,6 +62,10 @@ public class Tree : Enemy
                 }
             }
         } else {
+            if(SceneManager.GetActiveScene().name == "WFC") {
+                WFCExample.Instance.currentRoom.NumberOfEnemies -= 1;
+            }
+
             Destroy(this.gameObject);
         }
     }

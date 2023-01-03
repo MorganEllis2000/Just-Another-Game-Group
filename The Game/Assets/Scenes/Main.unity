@@ -15977,38 +15977,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock
       objectReference: {fileID: 0}
-    - target: {fileID: 4790780132804161520, guid: 7f9ce501cedde124cbb53efd8660d8c7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213288724143142769, guid: 7f9ce501cedde124cbb53efd8660d8c7, type: 3}
-      propertyPath: branch
-      value: 
-      objectReference: {fileID: 8198665312710759532, guid: 7e3714e55a7e86b42b1e23d053c53949, type: 3}
-    - target: {fileID: 7213288724143142769, guid: 7f9ce501cedde124cbb53efd8660d8c7, type: 3}
-      propertyPath: ThrowPoint
-      value: 
-      objectReference: {fileID: 1800422618}
-    - target: {fileID: 7213288724143142769, guid: 7f9ce501cedde124cbb53efd8660d8c7, type: 3}
-      propertyPath: OriginalPosition.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213288724143142769, guid: 7f9ce501cedde124cbb53efd8660d8c7, type: 3}
-      propertyPath: OriginalPosition.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213288724143142769, guid: 7f9ce501cedde124cbb53efd8660d8c7, type: 3}
-      propertyPath: OriginalPosition.z
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213288724143142769, guid: 7f9ce501cedde124cbb53efd8660d8c7, type: 3}
-      propertyPath: MaxLongRangeAttackRange
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213288724143142769, guid: 7f9ce501cedde124cbb53efd8660d8c7, type: 3}
-      propertyPath: MinLongRangeAttackRange
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f9ce501cedde124cbb53efd8660d8c7, type: 3}
 --- !u!1001 &685306074
@@ -53690,7 +53658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1519509106
 Transform:
   m_ObjectHideFlags: 0
@@ -53740,6 +53708,7 @@ MonoBehaviour:
   outputHeight: 15
   equalWeights: 0
   tileMapName: 
+  currentRoom: {fileID: 0}
   highlightTile: []
   highlightMap: {fileID: 0}
   previous: {x: 0, y: 0, z: 0}
@@ -57669,11 +57638,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1800422618 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6899867151972487763, guid: 7f9ce501cedde124cbb53efd8660d8c7, type: 3}
-  m_PrefabInstance: {fileID: 682782868}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1828248014
 GameObject:
   m_ObjectHideFlags: 0
@@ -58131,13 +58095,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2087394889, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087394890, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087394891, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.356
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087394891, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.128
+      objectReference: {fileID: 0}
     - target: {fileID: 2501911884321651335, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2501911884321651335, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.89
+      value: -20.07
       objectReference: {fileID: 0}
     - target: {fileID: 2501911884321651335, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -58175,13 +58155,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2501911884321651353, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
-      propertyPath: MaxOxygen
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 2501911884321651355, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490091801859923626, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
+      propertyPath: Damage
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}

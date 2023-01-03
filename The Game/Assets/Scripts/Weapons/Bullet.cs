@@ -30,10 +30,8 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().Health -= 30.0f;
             Destroy(this.gameObject);
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-         if (collision.gameObject.CompareTag("Wall")) {
+        if (collision.gameObject.CompareTag("Wall")) {
             Destroy(this.gameObject);
         }
     }

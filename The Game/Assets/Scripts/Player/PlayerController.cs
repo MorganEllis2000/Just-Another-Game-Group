@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     [Range(0f, 30f)]
     [SerializeField] public float runSpeed = 0.0f;
 
-    [Range(0f, 30f)]
+    [Range(0f, 200f)]
     [SerializeField] public float Health = 100;
 
     public float MaxOxygen;
@@ -103,6 +103,12 @@ public class PlayerController : MonoBehaviour
 
         if(Oxygen > MaxOxygen) {
             Oxygen = MaxOxygen;
+        }
+
+        if(Input.mousePosition.y < this.transform.position.y) {
+            SetPlayerDirection(PlayerDirection.FRONT);
+        } else if (Input.mousePosition.y > this.transform.position.y) {
+            SetPlayerDirection(PlayerDirection.BACK);
         }
     }
 
