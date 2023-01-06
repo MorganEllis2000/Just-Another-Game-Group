@@ -9,7 +9,7 @@ public class Tree : Enemy
     [SerializeField] private GameObject branch;
     [SerializeField] private GameObject ThrowPoint;
     [SerializeField] private GameObject Roots;
-    [SerializeField] private GameObject navMeshSurface;
+    //[SerializeField] private GameObject navMeshSurface;
 
     void Start()
     {

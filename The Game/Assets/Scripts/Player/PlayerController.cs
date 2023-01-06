@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
 
+    [SerializeField] private GameObject GameOverPanel;
+
     
 
     // DASH VARIABLES
@@ -135,7 +137,9 @@ public class PlayerController : MonoBehaviour
 
                 ChangePlayerSprite();
             } else {
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
+                Time.timeScale = 0;
+                GameOverPanel.SetActive(true);
             }
         }
     }

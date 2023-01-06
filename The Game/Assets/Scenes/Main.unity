@@ -58095,22 +58095,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2087394889, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394890, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394891, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.356
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394891, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.128
-      objectReference: {fileID: 0}
     - target: {fileID: 2501911884321651335, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -58159,10 +58143,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7490091801859923626, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
-      propertyPath: Damage
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d178b477afbf25448a5524ad5d209b5, type: 3}
 --- !u!1001 &5771469621197922342
@@ -58172,18 +58152,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2074033642, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: Roots
-      value: 
-      objectReference: {fileID: 6860535520193540661, guid: 5e4b785319d0cc84d850ff107eb0eaea, type: 3}
-    - target: {fileID: 2074033642, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: navMeshSurface
-      value: 
-      objectReference: {fileID: 1213625862}
-    - target: {fileID: 2074033642, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: ShortRangeAttackRange
-      value: 5.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5771469620283422512, guid: f851a869f8f79dc418edea003e781e20, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -58232,14 +58200,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree
       objectReference: {fileID: 0}
-    - target: {fileID: 5771469620283422515, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771469620283422524, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5771469620283422526, guid: f851a869f8f79dc418edea003e781e20, type: 3}
       propertyPath: PatrolSpots.Array.data[0]
       value: 
@@ -58252,21 +58212,5 @@ PrefabInstance:
       propertyPath: PatrolSpots.Array.data[2]
       value: 
       objectReference: {fileID: 1089943178}
-    - target: {fileID: 7152464305624246635, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152464305624246635, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: m_Acceleration
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152464305624246635, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: m_AngularSpeed
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152464305624246635, guid: f851a869f8f79dc418edea003e781e20, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f851a869f8f79dc418edea003e781e20, type: 3}

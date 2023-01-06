@@ -29,6 +29,7 @@ public class GunRotate : MonoBehaviour
             if (diffrence.magnitude > 0.0f) {
                 diffrence.Normalize();
                 diffrence *= 5f;
+                //diffrence.y += 0.05f;
                 CrossHair.transform.localPosition = diffrence;
             }
             //diffrence.Normalize();

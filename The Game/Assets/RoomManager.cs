@@ -6,7 +6,6 @@ public class RoomManager : MonoBehaviour
 {
     public int NumberOfEnemies;
     [SerializeField] GameObject[] doors;
-    [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private GameObject enemy;
 
 

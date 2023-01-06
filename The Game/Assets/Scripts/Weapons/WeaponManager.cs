@@ -19,6 +19,8 @@ public class WeaponManager : MonoBehaviour
         }
 
         Instance = this;
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
@@ -34,13 +36,19 @@ public class WeaponManager : MonoBehaviour
                 CurrentlyEquippedWeapon.SetActive(false);
             }    
             Weapons[0].SetActive(true);
+            PlayerController.Instance.SetOneHandedWeapon(OneHandedWeapons.PISTOL);
+            PlayerController.Instance.UpdatePlayerOneHandedWeapon();
             CurrentlyEquippedWeapon = Weapons[0];
+            CurrentlyEquippedWeapon.GetComponent<Pistol>().CanShoot = true;
         } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
             if (CurrentlyEquippedWeapon != null) {
                 CurrentlyEquippedWeapon.SetActive(false);
             }
             Weapons[1].SetActive(true);
             CurrentlyEquippedWeapon = Weapons[1];
+            PlayerController.Instance.SetOneHandedWeapon(OneHandedWeapons.PISTOL);
+            PlayerController.Instance.UpdatePlayerOneHandedWeapon();
+            CurrentlyEquippedWeapon.GetComponent<Shotgun>().CanShoot = true;
         } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
             if (CurrentlyEquippedWeapon != null) {
                 CurrentlyEquippedWeapon.SetActive(false);
