@@ -30,20 +30,13 @@ public class Shotgun : Weapon
 
     IEnumerator FireRate() {
         CanShoot = false;
-        //InstatiatePistolAmmo(ammo.GetComponent<Bullet>());
 
-        GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
-        Bullet.GetComponent<Rigidbody2D>().AddForce(-FirePoint.up * 15, ForceMode2D.Impulse);
-
-
-        //Ray ray = Camera.main.ScreenPointToRay(GunRotate.Instance.CrossHair.transform.position);
-        //GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
-        //Vector3 target = GunRotate.Instance.CrossHair.transform.position;
-        //Vector2.MoveTowards(this.transform.position, target + new Vector3(100,100,0), 15 * Time.deltaTime);
-        //Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
-        //Vector2 direction = (ray.GetPoint(10000.0f) - Bullet.transform.position).normalized;
-        //rb.AddForce(direction * 5, ForceMode2D.Impulse);
-
+        for(int i = 0; i < 5; i++) {
+            float randomY = Random.Range(-1f, 1f);
+            GameObject Bullet = Instantiate(ammo, new Vector3(FirePoint.position.x, FirePoint.position.y + randomY, FirePoint.position.z), FirePoint.rotation);
+            Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 15, ForceMode2D.Impulse);
+        }
+      
         yield return new WaitForSeconds(fireRate);
         CanShoot = true;
     }

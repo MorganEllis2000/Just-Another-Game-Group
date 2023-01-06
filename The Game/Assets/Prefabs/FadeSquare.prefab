@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 5049076928343203405}
   - component: {fileID: 4713930632041751561}
   m_Layer: 0
-  m_Name: Square
+  m_Name: FadeSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7313149068763483348
 Transform:
   m_ObjectHideFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2226725795956326181}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9, y: 9, z: 0}
   m_LocalScale: {x: 20.38535, y: 20.38535, z: 20.38535}
   m_Children: []
@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307a6a8cf7f36dd4fb248f3513089e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doors:
+  - {fileID: 0}
 --- !u!61 &4713930632041751561
 BoxCollider2D:
   m_ObjectHideFlags: 0

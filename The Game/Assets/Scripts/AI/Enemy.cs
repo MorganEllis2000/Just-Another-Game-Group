@@ -95,9 +95,13 @@ public class Enemy : MonoBehaviour
 
     public void ChasePlayer() {
         //this.transform.position = Vector2.MoveTowards(this.transform.position, PlayerController.Instance.gameObject.transform.position, 3 * Time.deltaTime);
-        agent.SetDestination(new Vector3(target.x, target.y, transform.position.z));
-        animator.SetBool("IsWalking", true);
-        animator.SetBool("CanTransformBack", false);
+        if (Vector3.Distance(this.transform.position, PlayerController.Instance.transform.position) > 1.0f) {
+            agent.SetDestination(new Vector3(target.x, target.y, transform.position.z));
+            animator.SetBool("IsWalking", true);
+            animator.SetBool("CanTransformBack", false);
+        } else {
+            agent.SetDestination(new Vector3(0,0,0));
+        }
     }
 
     public void ReturnToOriginalPos() {

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
+#endif
 using UnityEngine.UI;
 using TMPro;
 
@@ -55,7 +57,7 @@ public class Tutorial : MonoBehaviour
             PlayerController.Instance._Vertical = -1;
         }       
 
-        if (PlayerController.Instance.transform.position.y < StartPos.y - 4) {
+        if (PlayerController.Instance.transform.position.y < StartPos.y - 2.5f) {
             TutorialCounter += 1;
         }
     }
@@ -85,7 +87,7 @@ public class Tutorial : MonoBehaviour
             PlayerController.Instance._Horizontal = -1;
         }
 
-        if (PlayerController.Instance.transform.position.x < StartPos.x - 4) {
+        if (PlayerController.Instance.transform.position.x < StartPos.x - 2.5f) {
             TutorialCounter += 1;
         }
     }

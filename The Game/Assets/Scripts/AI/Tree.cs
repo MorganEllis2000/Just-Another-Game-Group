@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Tree : Enemy
 {
     [SerializeField] private GameObject branch;
     [SerializeField] private GameObject ThrowPoint;
+    [SerializeField] private GameObject Roots;
+    [SerializeField] private GameObject navMeshSurface;
 
     void Start()
     {
@@ -58,25 +62,41 @@ public class Tree : Enemy
                 }
             }
         } else {
+            if(SceneManager.GetActiveScene().name == "WFC") {
+                WFCExample.Instance.currentRoom.NumberOfEnemies -= 1;
+            }
+
             Destroy(this.gameObject);
         }
     }
 
     public IEnumerator LongRangeAttack() {
         CanAttack = false;
-        Debug.Log("Long Range Attacking Player");
         animator.SetBool("IsThrowing", true);
         GameObject tempBranch = GameObject.Instantiate(branch, ThrowPoint.transform.position, ThrowPoint.transform.rotation);
+        this.gameObject.GetComponent<NavMeshAgent>().enabled = false; this.gameObject.GetComponent<NavMeshAgent>().enabled = false;
         yield return new WaitForSeconds(0.5f);
+
+        this.gameObject.GetComponent<NavMeshAgent>().enabled = true;
         animator.SetBool("IsThrowing", false);
         yield return new WaitForSeconds(6.0f);
+        
         CanAttack = true;
     }
 
     public IEnumerator ShortRangeAttack() {
         CanAttack = false;
-        Debug.Log("Attacking Player");
-        yield return new WaitForSeconds(6.0f);
+        animator.SetBool("CanAttackClose", true);
+        this.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        yield return new WaitForSeconds(0.75f);  
+
+        Instantiate(Roots, PlayerController.Instance.transform.position, Roots.transform.rotation);
+        yield return new WaitForSeconds(0.75f);
+
+        this.gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        animator.SetBool("CanAttackClose", false);
+        yield return new WaitForSeconds(2.5f);
+
         CanAttack = true;
     }
 
