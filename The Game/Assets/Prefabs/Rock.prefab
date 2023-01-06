@@ -220,9 +220,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8dd71a3a76ef1743884c52c9ff22176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 110
-  ShortRangeAttackRange: 2.5
-  LongRangeAttackRange: 15
+  Health: 100
+  ShortRangeAttackRange: 3
+  MinLongRangeAttackRange: 0
+  MaxLongRangeAttackRange: 0
   TransformationRange: 10
   OriginalPosition: {x: 0, y: 0, z: 0}
   CanAttack: 0
