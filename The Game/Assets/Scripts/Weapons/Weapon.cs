@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected float Damage;
     [SerializeField] protected bool Reloading;
     [SerializeField] protected bool IsCoolingDown;
-    [SerializeField] protected bool CanShoot;
+    [SerializeField] public bool CanShoot;
 
     [SerializeField] protected Transform FirePoint; 
 

@@ -29,7 +29,13 @@ public class Tutorial : MonoBehaviour
 
     void Start()
     {
-        
+        StartCoroutine(WaitForScreen());
+    }
+
+    private IEnumerator WaitForScreen() {
+        PlayerController.Instance.IsTalking = true;
+        yield return new WaitForSeconds(10f);
+        PlayerController.Instance.IsTalking = false;
     }
 
     void Update()
@@ -93,7 +99,7 @@ public class Tutorial : MonoBehaviour
     }
 
     public void WalkRight() {
-        TutorialText.text = "Press 'D' to walk left";
+        TutorialText.text = "Press 'D' to walk right";
         PlayerController.Instance._Horizontal = 0;
         PlayerController.Instance._Vertical = 0;
         PlayerController.Instance.canDash = false;

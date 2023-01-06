@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &348787390
 Transform:
   m_ObjectHideFlags: 0
@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348787389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0.64, y: -0.12, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 2501911884321651335}
   m_RootOrder: 2
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 357a6f7e0274db144a7c2d3d5b93749e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8585866a5efbdd4b90ad333c0a49c2a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1945529700
@@ -138,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087394889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.76, y: 0.066, z: 0}
+  m_LocalPosition: {x: 0.356, y: 0.128, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 762968855162575767}
@@ -212,12 +212,12 @@ MonoBehaviour:
   MaxAmmo: 4
   ReloadTime: 4
   CurrentAmmo: 0
-  Damage: 37
+  Damage: 8
   Reloading: 0
   IsCoolingDown: 0
   CanShoot: 0
   FirePoint: {fileID: 762968855162575767}
-  ammo: {fileID: 2398489879004633346, guid: b48f14fcec2f181468719bfd7c259d04, type: 3}
+  ammo: {fileID: 7625961582536343287, guid: 7572ad9c98dcd2145a547260246a6e1b, type: 3}
 --- !u!1 &2501911882654116597
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +490,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 6410720941308904187, guid: c8d3ebac0387ff14bb8d1c9e0c1508fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -522,6 +522,7 @@ MonoBehaviour:
   Oxygen: 0
   IsTalking: 0
   rigidBody2D: {fileID: 0}
+  GameOverPanel: {fileID: 0}
   canDash: 1
   isDashing: 0
   dashingPower: 21.6
@@ -838,7 +839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4647808881616226596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57, y: -0.132, z: 0}
+  m_LocalPosition: {x: 0.57, y: -0.13200009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2087394891}
