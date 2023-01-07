@@ -60,7 +60,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6e9e2603fa6da44946ef087f54d10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
 --- !u!1 &4790780132804161520
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,9 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8dd71a3a76ef1743884c52c9ff22176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 110
-  ShortRangeAttackRange: 2.5
-  MinLongRangeAttackRange: 6
+  Health: 140
+  ShortRangeAttackRange: 3
+  MinLongRangeAttackRange: 4
   MaxLongRangeAttackRange: 15
   TransformationRange: 10
   OriginalPosition: {x: 5, y: 8, z: 20}

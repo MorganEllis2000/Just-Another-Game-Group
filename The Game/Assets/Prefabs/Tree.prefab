@@ -232,9 +232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39715461e9907a4986d9317732bfb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 110
-  ShortRangeAttackRange: 5.5
-  MinLongRangeAttackRange: 6
+  Health: 100
+  ShortRangeAttackRange: 4
+  MinLongRangeAttackRange: 5
   MaxLongRangeAttackRange: 15
   TransformationRange: 10
   OriginalPosition: {x: 2, y: 10, z: 0}

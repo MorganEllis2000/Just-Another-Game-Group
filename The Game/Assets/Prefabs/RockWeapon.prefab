@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: -8305380398757145247}
-  ThrowSpeed: 30
+  ThrowSpeed: 28
 --- !u!50 &-8305380398757145247
 Rigidbody2D:
   serializedVersion: 4
