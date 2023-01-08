@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GunDirection {
     NE,
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
     [Range(0f, 200f)]
     [SerializeField] public float Health = 100;
+    [SerializeField] public float MaxHealth = 100;
 
     public float MaxOxygen;
     public float Oxygen;
@@ -68,6 +70,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected float dashingCooldown = 1f;
     [SerializeField] protected TrailRenderer trailRenderer;
 
+    [SerializeField] AudioSource DashSound;
+
     private void Awake() {
 
         if (Instance != null && Instance != this) {
@@ -75,6 +79,8 @@ public class PlayerController : MonoBehaviour
         }
 
         Instance = this;
+
+        DontDestroyOnLoad(this);
     }
 
     void Start()
@@ -82,7 +88,12 @@ public class PlayerController : MonoBehaviour
         rigidBody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        Oxygen = MaxOxygen;
+        if(SceneManager.GetActiveScene().name == "Tutorial") {
+            Oxygen = Oxygen;
+        } else {
+            Oxygen = MaxOxygen;
+        }
+        
     }
 
     // Update is called once per frame
@@ -116,7 +127,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate() {
         if(IsTalking == false) {
-            if (Health > 0) {
+            if (Health > 0 || Oxygen > 0) {
                 if (isDashing == true) {
                     return;
                 }
@@ -138,10 +149,17 @@ public class PlayerController : MonoBehaviour
                 ChangePlayerSprite();
             } else {
                 //Destroy(this.gameObject);
-                Time.timeScale = 0;
-                GameOverPanel.SetActive(true);
+                //Time.timeScale = 0;
+                StartCoroutine(PlayerDying());
             }
         }
+    }
+
+    public IEnumerator PlayerDying() {
+        PlayerController.Instance.rigidBody2D.velocity = Vector2.zero;
+        animator.Play("Base Layer.A_PlayerDeath");
+        yield return new WaitForSeconds(5);
+        GameOverPanel.SetActive(true);
     }
 
     public IEnumerator Dash() {
@@ -172,6 +190,7 @@ public class PlayerController : MonoBehaviour
             rigidBody2D.velocity = new Vector2(transform.localScale.x * dashingPower * _moveLimiter, 0);
         }
 
+        DashSound.Play();
         trailRenderer.emitting = true;
         spriteRenderer.enabled = false;
         yield return new WaitForSeconds(dashingTime);
@@ -263,6 +282,12 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator ChangeSpriteColour(float seconds) {
         spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(seconds);
+        spriteRenderer.color = Color.white;
+    }
+
+    public IEnumerator ChangeSpriteColour(Color color, float seconds) {
+        spriteRenderer.color = color;
         yield return new WaitForSeconds(seconds);
         spriteRenderer.color = Color.white;
     }

@@ -27,6 +27,8 @@ public class Tutorial : MonoBehaviour
 
     public TextMeshProUGUI TutorialText;
 
+    public GameObject PostTutorialTimeline;
+
     void Start()
     {
         StartCoroutine(WaitForScreen());
@@ -50,6 +52,8 @@ public class Tutorial : MonoBehaviour
             WalkRight();
         } else if (TutorialCounter == 5) {
             DashTutorial();
+        } else if (TutorialCounter == 6 && LevelManager.Instance.NumberOfEnemies == 6) {
+            StartCoroutine(PostDashDialogue());
         }
     }
 
@@ -118,9 +122,9 @@ public class Tutorial : MonoBehaviour
         PlayerController.Instance.canDash = false;
         if (Vector3.Distance(GameObject.Find("Branch(Clone)").transform.position, PlayerController.Instance.transform.position) < 4.0f){
             Time.timeScale = 0f;
-            TutorialText.text = "Press 'Left Shift' and 'S' to dash";
+            TutorialText.text = "Press 'Left Shift' and a direction to dash";
 
-            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.S)) {
+            if((Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))) {
                 Time.timeScale = 1.0f;
                 PlayerController.Instance.canDash = true;
                 StartCoroutine(PlayerController.Instance.Dash());
@@ -128,7 +132,15 @@ public class Tutorial : MonoBehaviour
                 TutorialCounter += 1;
             }
         }
+    }
 
-
+    public IEnumerator PostDashDialogue() {
+        PostTutorialTimeline.gameObject.SetActive(true);
+        PlayerController.Instance.IsTalking = true;
+        PlayerController.Instance.rigidBody2D.velocity = Vector2.zero;
+        PlayerController.Instance.GetComponent<Animator>().SetBool("IsRunning", false);
+        PlayerController.Instance.GetComponent<Animator>().SetInteger("SetGunDirection", 4);
+        yield return new WaitForSeconds(8);
+        PlayerController.Instance.IsTalking = false;
     }
 }

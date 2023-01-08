@@ -101,6 +101,7 @@ MonoBehaviour:
   BulletSpeed: 18
   LiveTime: 2.4
   target: {x: -10.2964115, y: -0.5876403, z: -1.2824341}
+  Damage: 30
 --- !u!50 &2398489879004633374
 Rigidbody2D:
   serializedVersion: 4

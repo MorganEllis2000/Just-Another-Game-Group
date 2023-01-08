@@ -20,4 +20,8 @@ public class MainMenu : MonoBehaviour
     public void LoadScene(int index) {
         SceneManager.LoadScene(index);
     }
+
+    public void DestroyPlayer() {
+        Destroy(PlayerController.Instance.gameObject);
+    }
 }

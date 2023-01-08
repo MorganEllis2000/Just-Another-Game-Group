@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Rock : Enemy
 {
@@ -34,6 +35,7 @@ public class Rock : Enemy
             }
 
             if (CanMove == true) {
+                this.GetComponent<PolygonCollider2D>().enabled = true;
                 CheckEnemyDirection();
                 UpdateEnemyDirection(spriteRenderer);
 
@@ -62,10 +64,24 @@ public class Rock : Enemy
                     StopCoroutine(ShortRangeAttack());
                     ReturnToOriginalPos();
                 }
+            } else {
+                this.GetComponent<PolygonCollider2D>().enabled = false;
             }
         } else {
-            Destroy(this.gameObject);
+            StartCoroutine(WaitForDeath());
         }
+    }
+
+    public IEnumerator WaitForDeath() {
+        animator.SetBool("IsDead", true);
+        this.GetComponent<NavMeshAgent>().isStopped = true;
+        this.GetComponent<PolygonCollider2D>().enabled = false;
+        yield return new WaitForSeconds(3);
+        if (SceneManager.GetActiveScene().name == "WFC") {
+            WFCExample.Instance.currentRoom.NumberOfEnemiesLeft -= 1;
+        }
+        
+        Destroy(this.gameObject);
     }
 
 

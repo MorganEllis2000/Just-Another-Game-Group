@@ -19,20 +19,22 @@ public class TriggerTimeline : MonoBehaviour
     }
 
     private IEnumerator PausePlayer() {
-        PlayerController.Instance.GetComponent<Animator>().SetBool("IsRunning", false);
-        timeline.SetActive(true);
         PlayerController.Instance.IsTalking = true;
         PlayerController.Instance.rigidBody2D.velocity = Vector2.zero;
+        PlayerController.Instance.GetComponent<Animator>().SetBool("IsRunning", false);
+        PlayerController.Instance.GetComponent<Animator>().SetInteger("SetGunDirection", 4);
+        //PlayerController.Instance.GetComponent<Animator>().SetBool("ReturnToIdle", true);
+        yield return new WaitForSeconds(1);
+        timeline.SetActive(true);
         yield return new WaitForSeconds(6);
         PlayerController.Instance.IsTalking = false;
+        Destroy(this.gameObject);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
             StartCoroutine(PausePlayer());
-            //timeline.SetActive(true);
-            //PlayerController.Instance.rigidBody2D.velocity = Vector2.zero;
-
         }
     }
 

@@ -7,6 +7,7 @@ public class ShotgunBullet : MonoBehaviour {
     private Rigidbody2D rigidBody;
     [SerializeField] protected float LiveTime;
     [SerializeField] public Vector3 target;
+    [SerializeField] private int Damage;
 
     private void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -26,7 +27,7 @@ public class ShotgunBullet : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Enemy")) {
-            collision.gameObject.GetComponent<Enemy>().Health -= 11.0f;
+            PlayerController.Instance.TakeDamage(Damage);
             Destroy(this.gameObject);
         }
 

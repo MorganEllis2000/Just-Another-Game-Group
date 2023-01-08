@@ -24,7 +24,7 @@ public class OxygenManager : MonoBehaviour
     void Start()
     {
         OxygenBar.maxValue = PlayerController.Instance.MaxOxygen;
-        OxygenBar.value = PlayerController.Instance.MaxOxygen;
+        OxygenBar.value = PlayerController.Instance.Oxygen;
         //InvokeRepeating("DecreaseOxygen", RepeatDelay, 1.0f);
         StartCoroutine(DecreaseOxygenCoroutine());
     }

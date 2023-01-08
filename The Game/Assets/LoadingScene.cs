@@ -10,8 +10,8 @@ public class LoadingScene : MonoBehaviour
     public static LoadingScene Instance { get; private set; }
 
     public GameObject LoadingScreen;
-    public Image LoadingBarFill;
-    public Slider slider;
+
+    [SerializeField] private int ID;
 
     private void Awake() {
 
@@ -24,6 +24,14 @@ public class LoadingScene : MonoBehaviour
 
     public void LoadScene(int sceneID) {
         StartCoroutine(LoadSceneAsync(sceneID));
+
+        if(sceneID == 2) {
+            PlayerController.Instance.transform.position = new Vector3(-32.6f, -0.9f, 0);
+        }
+
+        if (sceneID == 3) {
+            PlayerController.Instance.transform.position = new Vector3(-25.2f, 23.7f, 0);
+        }
     }
 
     IEnumerator LoadSceneAsync(int sceneID) {
@@ -32,12 +40,11 @@ public class LoadingScene : MonoBehaviour
         LoadingScreen.SetActive(true);
 
         while (!operation.isDone) {
-            float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
-
-            //LoadingBarFill.fillAmount = progressValue;
-            slider.value = progressValue;
-
             yield return null;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        LoadScene(2);
     }
 }

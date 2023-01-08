@@ -9,6 +9,8 @@ public class BranchWeapon : MonoBehaviour
     public Rigidbody2D Rigidbody;
     [SerializeField] private float ThrowSpeed;
     private Vector3 TargetPos;
+    [SerializeField] private int Damage;
+
     private void Start() {
         //Vector2 MoveDirection = (PlayerController.Instance.gameObject.transform.position - transform.position).normalized * ThrowSpeed;
         //Rigidbody.velocity = new Vector2(MoveDirection.x, MoveDirection.y);
@@ -23,7 +25,7 @@ public class BranchWeapon : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
-            PlayerController.Instance.TakeDamage(30f);
+            PlayerController.Instance.TakeDamage(Damage);
             Destroy(this.gameObject);
         }
     }

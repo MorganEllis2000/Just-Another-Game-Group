@@ -23,6 +23,8 @@ public class Tree : Enemy
         UpdateTargetPosition();
         if (Health > 0) {
 
+            this.GetComponent<PolygonCollider2D>().enabled = true;
+
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("A_TreeIdle_FRONT") && DistanceOfAiToPlayer() > TransformationRange) {
                 CanAttack = false;
             }
@@ -60,14 +62,25 @@ public class Tree : Enemy
                     StopCoroutine(ShortRangeAttack());
                     ReturnToOriginalPos();
                 }
+            } else {
+                this.GetComponent<PolygonCollider2D>().enabled = false;
             }
         } else {
-            if(SceneManager.GetActiveScene().name == "WFC") {
-                WFCExample.Instance.currentRoom.NumberOfEnemies -= 1;
-            }
 
-            Destroy(this.gameObject);
+
+            if (SceneManager.GetActiveScene().name == "Tutorial") {
+                StartCoroutine(WaitForDeath());
+            }
         }
+    }
+
+    public IEnumerator WaitForDeath() {
+        animator.SetBool("IsDead", true);
+        this.GetComponent<NavMeshAgent>().isStopped = true;
+        this.GetComponent<PolygonCollider2D>().enabled = false;
+        yield return new WaitForSeconds(3);
+        LevelManager.Instance.NumberOfEnemies -= 1;
+        Destroy(this.gameObject);
     }
 
     public IEnumerator LongRangeAttack() {

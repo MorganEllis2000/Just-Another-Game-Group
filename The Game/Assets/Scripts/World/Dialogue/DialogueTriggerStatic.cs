@@ -18,8 +18,10 @@ public class DialogueTriggerStatic : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        PlayerController.Instance.IsTalking = true;
-        Time.timeScale = 0;
-        TriggerDialogue();
+        if (collision.CompareTag("Player")) {
+            PlayerController.Instance.IsTalking = true;
+            Time.timeScale = 0;
+            TriggerDialogue();
+        }
     }
 }

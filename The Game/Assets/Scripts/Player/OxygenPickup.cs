@@ -10,7 +10,10 @@ public class OxygenPickup : MonoBehaviour
         if (collision.CompareTag("Player")) {
             PlayerController.Instance.Oxygen += AdditionalOxygen;
             OxygenManager.Instance.IncreaseOxygen();
-            Destroy(this.gameObject);
+            this.GetComponent<AudioSource>().Play();
+            this.GetComponent<BoxCollider2D>().enabled = false;
+            this.GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(this.gameObject, 3);
         }
     }
 }

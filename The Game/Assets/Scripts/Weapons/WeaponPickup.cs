@@ -5,6 +5,8 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour
 {
     [SerializeField] protected GameObject WeaponToEquip;
+    [SerializeField] protected GameObject PickupText;
+
     void Start()
     {
         
@@ -25,10 +27,21 @@ public class WeaponPickup : MonoBehaviour
     //}
 
     private void OnTriggerStay2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.F)) {
-            WeaponManager.Instance.EquipOneHandedWeapon(WeaponToEquip);
-            WeaponManager.Instance.Weapons.Add(WeaponToEquip);
-            this.gameObject.SetActive(false);
+        PickupText.SetActive(true);
+        if (collision.gameObject.CompareTag("Player")){
+            if(Input.GetKey(KeyCode.F)) {
+                WeaponManager.Instance.EquipOneHandedWeapon(WeaponToEquip);
+                WeaponManager.Instance.Weapons.Add(WeaponToEquip);
+                this.gameObject.SetActive(false);
+                PickupText.SetActive(false);
+            }
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Player")) {
+            PickupText.SetActive(false);
         }
     }
 }
