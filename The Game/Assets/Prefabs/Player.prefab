@@ -218,6 +218,7 @@ MonoBehaviour:
   CanShoot: 0
   FirePoint: {fileID: 762968855162575767}
   ammo: {fileID: 7625961582536343287, guid: 7572ad9c98dcd2145a547260246a6e1b, type: 3}
+  range: 2
 --- !u!1 &582365094036418972
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +479,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6209339348103375699}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: DestroyPlayer
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1113,7 +1126,7 @@ MonoBehaviour:
   _Vertical: 0
   _Horizontal: 0
   runSpeed: 5.1
-  Health: 14.7
+  Health: 100
   MaxHealth: 100
   MaxOxygen: 25
   Oxygen: 0
@@ -1314,14 +1327,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2501911884321651355}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ee0263576fa83bf4692ef5f869898ab8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.037
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1414,7 +1427,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f57ed13796ebb274786962291a91087c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.047
   m_Pitch: 1
   Loop: 0

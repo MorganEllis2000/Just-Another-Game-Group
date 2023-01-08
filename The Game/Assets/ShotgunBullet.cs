@@ -7,7 +7,7 @@ public class ShotgunBullet : MonoBehaviour {
     private Rigidbody2D rigidBody;
     [SerializeField] protected float LiveTime;
     [SerializeField] public Vector3 target;
-    [SerializeField] private int Damage;
+    [SerializeField] private float Damage;
 
     private void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -26,12 +26,22 @@ public class ShotgunBullet : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Enemy")) {
-            PlayerController.Instance.TakeDamage(Damage);
+        if (collision.gameObject.CompareTag("Enemy") && collision.gameObject.name != "InfectedAstronaut") {
+            collision.gameObject.GetComponent<Enemy>().Health -= Damage;
             Destroy(this.gameObject);
         }
 
         if (collision.gameObject.CompareTag("Wall")) {
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Player") && this.gameObject.CompareTag("EnemyBullet")) {
+            PlayerController.Instance.TakeDamage(Damage);
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Enemy") && this.gameObject.CompareTag("Bullet") && collision.gameObject.name == "InfectedAstronaut") {
+            collision.gameObject.GetComponent<Enemy>().Health -= Damage;
             Destroy(this.gameObject);
         }
     }

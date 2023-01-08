@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
 
     protected Animator animator;
     protected SpriteRenderer spriteRenderer;
-    [Range(50, 300)]
     public float Health;
 
     [Range(0.1f, 10f)]

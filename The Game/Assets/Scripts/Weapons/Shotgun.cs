@@ -7,6 +7,7 @@ public class Shotgun : Weapon
     [SerializeField] private GameObject ammo;
     private float SpreadAngle = 20f;
     private int NumberOfProjectiles = 6;
+    [SerializeField] private float range;
 
     private void Start() {
         CurrentAmmo = MaxAmmo;
@@ -33,30 +34,43 @@ public class Shotgun : Weapon
     IEnumerator FireRate() {
         CanShoot = false;
 
-        Vector2 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 dirTowardsTarget = (targetPosition - (Vector2)transform.position);
-        transform.right = dirTowardsTarget.normalized;
-        float aimingAngle = transform.rotation.eulerAngles.z;
-        float minAngle = aimingAngle - (SpreadAngle * 0.5f);
-        float maxAngle = aimingAngle + (SpreadAngle * 0.5f);
-
         for (int i = 0; i < 5; i++) {
-            if (i == 0) {
-                GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
-                Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 500 + new Vector3(0, 60f, 0), ForceMode2D.Force);
-            } else if (i == 1) {
-                GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
-                Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 500 + new Vector3(0, 30f, 0), ForceMode2D.Force);
-            } else if (i == 2) {
-                GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
-                Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 500 + new Vector3(0, 0f, 0), ForceMode2D.Force);
-            } else if (i == 3) {
-                GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
-                Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 500 + new Vector3(0, -30f, 0), ForceMode2D.Force);
-            } else if (i == 4) {
-                GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
-                Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 500 + new Vector3(0, -60f, 0), ForceMode2D.Force);
-            }
+
+            float angleStep = SpreadAngle / NumberOfProjectiles;
+            float aimingAngle = FirePoint.rotation.eulerAngles.z;
+            float centeringOffset = (SpreadAngle / 2) - (angleStep / 2);
+
+            float currentBulletAngle = angleStep * i;
+
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, aimingAngle + currentBulletAngle - centeringOffset));
+            GameObject bullet = Instantiate(ammo, FirePoint.transform.position, rotation);
+
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(bullet.transform.right * 15, ForceMode2D.Impulse);
+
+            //ammo.transform.position = new Vector3(FirePoint.transform.position.x, (Random.Range(FirePoint.transform.position.y - range, FirePoint.transform.position.y + range)));
+            //GameObject Bullet = Instantiate(ammo, ammo.transform.position, ammo.transform.rotation);
+            //Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 15, ForceMode2D.Impulse);
+
+            //GameObject Bullet = Instantiate(ammo, FirePoint.transform.position, FirePoint.transform.rotation);
+            //Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 15, ForceMode2D.Impulse);
+
+            //if (i == 0) {
+            //    GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
+            //    Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 500 + new Vector3(0, 60f, 0), ForceMode2D.Force);
+            //} else if (i == 1) {
+            //    GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
+            //    Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 500 + new Vector3(0, 30f, 0), ForceMode2D.Force);
+            //} else if (i == 2) {
+            //    GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
+            //    Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 500 + new Vector3(0, 0f, 0), ForceMode2D.Force);
+            //} else if (i == 3) {
+            //    GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
+            //    Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 500 + new Vector3(0, -30f, 0), ForceMode2D.Force);
+            //} else if (i == 4) {
+            //    GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
+            //    Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 500 + new Vector3(0, -60f, 0), ForceMode2D.Force);
+            //}
         }
 
 
