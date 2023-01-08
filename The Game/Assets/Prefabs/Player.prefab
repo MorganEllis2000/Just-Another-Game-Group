@@ -1128,7 +1128,7 @@ MonoBehaviour:
   runSpeed: 5.1
   Health: 100
   MaxHealth: 100
-  MaxOxygen: 25
+  MaxOxygen: 300
   Oxygen: 0
   IsTalking: 0
   rigidBody2D: {fileID: 0}
