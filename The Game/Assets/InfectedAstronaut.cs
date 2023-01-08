@@ -28,10 +28,13 @@ public class InfectedAstronaut : Enemy
     [SerializeField] protected float dashingCooldown = 1f;
     [SerializeField] protected TrailRenderer trailRenderer;
     private float _moveLimiter = 0.7f;
+    [SerializeField] private int DashPercentage;
 
 
     [SerializeField] private Slider HealthBar;
     private Rigidbody2D rigidBody2D;
+
+    [SerializeField] private GameObject RootsBlockingExit;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +43,7 @@ public class InfectedAstronaut : Enemy
         animator = this.gameObject.GetComponent<Animator>();
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
         HealthBar.maxValue = Health;
+        StartCoroutine(PlayTransformation());
     }
 
     
@@ -50,7 +54,7 @@ public class InfectedAstronaut : Enemy
         HealthBar.value = Health;
 
         UpdateTargetPosition();
-        if (Health > 0) {
+        if (Health > 0 && CanMove == true) {
             
             ChasePlayer();
             CheckEnemyDirection();
@@ -68,6 +72,8 @@ public class InfectedAstronaut : Enemy
                     }
                 }
             }
+        } else if (CanMove == true && Health <= 0) {
+            StartCoroutine(WaitForDeath());
         }
 
         Vector3 dir = PlayerController.Instance.transform.position - Shotgun.transform.position;
@@ -78,8 +84,28 @@ public class InfectedAstronaut : Enemy
             Shotgun.GetComponent<SpriteRenderer>().flipY = true;
         } else {
             Shotgun.GetComponent<SpriteRenderer>().flipY = false;
-        }
+        } 
     }
+
+    public IEnumerator PlayTransformation() {
+        animator.Play("Base Layer.A_InfectedAstronautTransforming");
+        yield return new WaitForSeconds(3);
+        this.GetComponent<PolygonCollider2D>().enabled = true;
+        CanMove = true;
+        Shotgun.SetActive(true);
+    }
+    public IEnumerator WaitForDeath() {
+        animator.SetBool("IsWalking", false);
+        this.GetComponent<NavMeshAgent>().isStopped = true;
+        this.GetComponent<PolygonCollider2D>().enabled = false;
+        this.rigidBody2D.velocity = Vector2.zero;
+        animator.SetFloat("Direction", -1);
+        animator.Play("Base Layer.A_InfectedAstronautTransforming", -1, float.NegativeInfinity);
+        yield return new WaitForSeconds(3);
+        Destroy(RootsBlockingExit);
+        Destroy(this.gameObject);
+    }
+
 
     public void ShootPlayer() {
         CanShoot = false;
@@ -111,7 +137,7 @@ public class InfectedAstronaut : Enemy
         int DashChance = Random.Range(1, 100);
         Debug.Log(DashChance);
         CanDash = false;
-        if (DashChance > 80) {
+        if (DashChance > DashPercentage) {
             
             this.GetComponent<NavMeshAgent>().isStopped = true;
             isDashing = true;

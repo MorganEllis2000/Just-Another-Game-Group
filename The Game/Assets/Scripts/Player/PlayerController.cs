@@ -99,35 +99,37 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(IsTalking == false) {
-            if (Health > 0) {
-                if (isDashing == true) {
-                    return;
-                }
+        if(Health > 0) {
+            if (IsTalking == false) {
+                if (Health > 0) {
+                    if (isDashing == true) {
+                        return;
+                    }
 
-                _Horizontal = Input.GetAxisRaw("Horizontal");
-                _Vertical = Input.GetAxisRaw("Vertical");
+                    _Horizontal = Input.GetAxisRaw("Horizontal");
+                    _Vertical = Input.GetAxisRaw("Vertical");
 
-                if (Input.GetKey(KeyCode.LeftShift) && canDash == true) {
-                    StartCoroutine(Dash());
+                    if (Input.GetKey(KeyCode.LeftShift) && canDash == true) {
+                        StartCoroutine(Dash());
+                    }
                 }
             }
-        }
 
-        if(Oxygen > MaxOxygen) {
-            Oxygen = MaxOxygen;
-        }
+            if (Oxygen > MaxOxygen) {
+                Oxygen = MaxOxygen;
+            }
 
-        if(Input.mousePosition.y < this.transform.position.y) {
-            SetPlayerDirection(PlayerDirection.FRONT);
-        } else if (Input.mousePosition.y > this.transform.position.y) {
-            SetPlayerDirection(PlayerDirection.BACK);
+            if (Input.mousePosition.y < this.transform.position.y) {
+                SetPlayerDirection(PlayerDirection.FRONT);
+            } else if (Input.mousePosition.y > this.transform.position.y) {
+                SetPlayerDirection(PlayerDirection.BACK);
+            }
         }
     }
 
     private void FixedUpdate() {
         if(IsTalking == false) {
-            if (Health > 0 || Oxygen > 0) {
+            if (Health > 0) {
                 if (isDashing == true) {
                     return;
                 }
@@ -156,7 +158,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public IEnumerator PlayerDying() {
-        PlayerController.Instance.rigidBody2D.velocity = Vector2.zero;
+        PlayerController.Instance.rigidBody2D.velocity = Vector2.zero;      
         animator.Play("Base Layer.A_PlayerDeath");
         yield return new WaitForSeconds(5);
         GameOverPanel.SetActive(true);
