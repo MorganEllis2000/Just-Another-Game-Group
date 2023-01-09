@@ -31,6 +31,9 @@ public class DialogueManager : MonoBehaviour
     public Dialogue dialogue1;
     public bool dialogue1Activated = false;
 
+    [SerializeField] private AudioClip[] AIVoices;
+    private AudioSource source;
+
     /// <summary>
     /// Create an instance of the dialogue manager
     /// </summary>
@@ -48,6 +51,7 @@ public class DialogueManager : MonoBehaviour
     private void Start() {
         Names = new Queue<string>();
         Sentences = new Queue<string>();
+        source = this.GetComponent<AudioSource>();
     }
 
     public float timer = 0f;
@@ -125,6 +129,8 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
         DialogueText.text = sentence;
         NameText.text = name;
+        source.clip = AIVoices[Random.Range(0, 2)];
+        source.Play();
         //StartCoroutine(TypeSentence(sentence));
     }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6168525328025042382}
   - component: {fileID: 6168525328025042380}
   - component: {fileID: 6168525328025042381}
+  - component: {fileID: 5151583557148916987}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -79,6 +80,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: S.N. XDR01
+--- !u!114 &5151583557148916987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168525328025042383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401f1e9b13a924c45bc1a5c7d7ec9b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IDName: {fileID: 6168525328025042381}
 --- !u!1 &6168525329792059032
 GameObject:
   m_ObjectHideFlags: 0

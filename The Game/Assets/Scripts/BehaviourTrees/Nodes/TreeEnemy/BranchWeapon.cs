@@ -28,5 +28,9 @@ public class BranchWeapon : MonoBehaviour
             PlayerController.Instance.TakeDamage(Damage);
             Destroy(this.gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Wall")) {
+            Destroy(this.gameObject);
+        }
     }
 }

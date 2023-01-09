@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WeaponPickup : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class WeaponPickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(WeaponManager.Instance.Weapons.Count == 1 && SceneManager.GetActiveScene().name == "WFC") {
+            WeaponToEquip = PlayerController.Instance.transform.GetChild(0).transform.GetChild(1).gameObject;
+        }
     }
 
     //private void OnTriggerEnter2D(Collider2D collision) {

@@ -211,6 +211,10 @@ MonoBehaviour:
   CanAttack: 0
   CanMove: 0
   target: {x: 0, y: 0, z: 0}
+  TransformSound: {fileID: 0}
+  ThrowSound: {fileID: 0}
+  SmashSound: {fileID: 0}
+  DeathSound: {fileID: 0}
   Shotgun: {fileID: 5384570260962400509}
   ammo: {fileID: 8697916809661770913, guid: a4d3551dbd7fa3f45b23d8519d2b6cc0, type: 3}
   FirePoint: {fileID: 5384570262157720327}
@@ -220,7 +224,9 @@ MonoBehaviour:
   dashingTime: 0.2
   dashingCooldown: 5
   trailRenderer: {fileID: 5384570260643702513}
+  DashPercentage: 65
   HealthBar: {fileID: 929104703369682926}
+  RootsBlockingExit: {fileID: 0}
 --- !u!195 &5384570260643702517
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -269,7 +275,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5384570260643702521}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -439,7 +445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5384570260962400508
 Transform:
   m_ObjectHideFlags: 0

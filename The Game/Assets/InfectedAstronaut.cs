@@ -37,6 +37,8 @@ public class InfectedAstronaut : Enemy
     [SerializeField] private GameObject RootsBlockingExit;
 
     // Start is called before the first frame update
+
+    [SerializeField] private GameObject GameCompletePanel;
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -55,6 +57,7 @@ public class InfectedAstronaut : Enemy
 
         UpdateTargetPosition();
         if (Health > 0 && CanMove == true) {
+
             
             ChasePlayer();
             CheckEnemyDirection();
@@ -87,6 +90,21 @@ public class InfectedAstronaut : Enemy
         } 
     }
 
+    public bool LineOfSight() {
+
+        RaycastHit hit;
+        if(Physics.Raycast(FirePoint.transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, 0)) {
+            if(hit.transform.CompareTag("Player")) {
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                return true;
+            } 
+        } else {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+        }
+
+        return false;
+    }
+
     public IEnumerator PlayTransformation() {
         animator.Play("Base Layer.A_InfectedAstronautTransforming");
         yield return new WaitForSeconds(3);
@@ -104,6 +122,8 @@ public class InfectedAstronaut : Enemy
         yield return new WaitForSeconds(3);
         Destroy(RootsBlockingExit);
         Destroy(this.gameObject);
+        GameCompletePanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private Image WeaponUI;
     [SerializeField] private Sprite PistolUI;
     [SerializeField] private Sprite ShotgunUI;
+    [SerializeField] private TextMeshProUGUI AmmoCounter;
     
 
     private void Awake() {
@@ -26,7 +28,7 @@ public class WeaponManager : MonoBehaviour
 
         Instance = this;
 
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this);
     }
 
     void Start()
@@ -42,6 +44,10 @@ public class WeaponManager : MonoBehaviour
         } else {
             WeaponUI.gameObject.SetActive(true);
         }
+        if (CurrentlyEquippedWeapon != null) {
+            AmmoCounter.text = CurrentlyEquippedWeapon.GetComponent<Weapon>().CurrentAmmo + " / " + CurrentlyEquippedWeapon.GetComponent<Weapon>().MaxAmmo;
+        }
+            
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             if (CurrentlyEquippedWeapon != null) {

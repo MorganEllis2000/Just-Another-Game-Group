@@ -15,6 +15,7 @@ public class Tree : Enemy
     {
         animator = this.gameObject.GetComponent<Animator>();
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+        source = this.GetComponent<AudioSource>();
     }
 
 
@@ -32,10 +33,14 @@ public class Tree : Enemy
             if (DistanceOfAiToPlayer() < TransformationRange && CanAttack == false && animator.GetBool("CanTransform") == false) {
                 CanMove = false;
                 animator.SetBool("CanTransform", true);
+                source.clip = TransformSound;
+                source.volume = 0.06f;
+                source.Play();
                 StartCoroutine(WaitForAnimationToFinish());
             }
 
             if (CanMove == true) {
+                animator.SetBool("IsWalking", true);
                 CheckEnemyDirection();
                 UpdateEnemyDirection(spriteRenderer);
 
@@ -53,6 +58,7 @@ public class Tree : Enemy
                     if (CanAttack == true) {
                         StartCoroutine(LongRangeAttack());
                     }
+
                 } else if (DistanceOfAiToPlayer() < 6.0f) {
                     StopCoroutine(LongRangeAttack());
                     StopCoroutine(ShortRangeAttack());
@@ -66,9 +72,7 @@ public class Tree : Enemy
                 this.GetComponent<PolygonCollider2D>().enabled = false;
             }
         } else {
-
-
-            if (SceneManager.GetActiveScene().name == "Tutorial") {
+            if (animator.GetBool("IsDead") == false) {
                 StartCoroutine(WaitForDeath());
             }
         }
@@ -76,16 +80,24 @@ public class Tree : Enemy
 
     public IEnumerator WaitForDeath() {
         animator.SetBool("IsDead", true);
+        source.clip = DeathSound;
+        source.volume = 0.1f;
+        source.Play();
         this.GetComponent<NavMeshAgent>().isStopped = true;
         this.GetComponent<PolygonCollider2D>().enabled = false;
         yield return new WaitForSeconds(3);
-        LevelManager.Instance.NumberOfEnemies -= 1;
+        if (SceneManager.GetActiveScene().name == "Tutorial") {
+            LevelManager.Instance.NumberOfEnemies -= 1;
+        }
         Destroy(this.gameObject);
     }
 
     public IEnumerator LongRangeAttack() {
         CanAttack = false;
         animator.SetBool("IsThrowing", true);
+        source.clip = ThrowSound;
+        source.volume = 0.03f;
+        source.Play();
         GameObject tempBranch = GameObject.Instantiate(branch, ThrowPoint.transform.position, ThrowPoint.transform.rotation);
         this.gameObject.GetComponent<NavMeshAgent>().enabled = false; this.gameObject.GetComponent<NavMeshAgent>().enabled = false;
         yield return new WaitForSeconds(0.5f);
@@ -100,13 +112,17 @@ public class Tree : Enemy
     public IEnumerator ShortRangeAttack() {
         CanAttack = false;
         animator.SetBool("CanAttackClose", true);
-        this.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        this.gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+        this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         yield return new WaitForSeconds(0.75f);  
 
         Instantiate(Roots, PlayerController.Instance.transform.position, Roots.transform.rotation);
+        source.clip = SmashSound;
+        source.Play();
+        source.volume = 0.06f;
         yield return new WaitForSeconds(0.75f);
 
-        this.gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        this.gameObject.GetComponent<NavMeshAgent>().isStopped = false;
         animator.SetBool("CanAttackClose", false);
         yield return new WaitForSeconds(2.5f);
 

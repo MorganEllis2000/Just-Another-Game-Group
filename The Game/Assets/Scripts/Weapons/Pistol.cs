@@ -12,6 +12,7 @@ public class Pistol : Weapon {
         CurrentAmmo = MaxAmmo;
         Reloading = false;
         CanShoot = true;
+        source = this.GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -24,48 +25,41 @@ public class Pistol : Weapon {
             Debug.Log("Current Ammo " + CurrentAmmo);
             CurrentAmmo--;
             StartCoroutine("FireRate");      
-        } else if (CurrentAmmo <= 0) {
+        } else if (CurrentAmmo <= 0 && Reloading == false) {
             Debug.Log("Reloading...");
-            StartCoroutine("Reload");
+            StartCoroutine(Reload());
+        }
+
+        if(Input.GetKeyDown(KeyCode.R) && CurrentAmmo < MaxAmmo && CurrentAmmo != 0 && Reloading == false) {
+            StartCoroutine(Reload());
         }
     }
 
     IEnumerator FireRate() {
         CanShoot = false;
-        //InstatiatePistolAmmo(ammo.GetComponent<Bullet>());
+        source.clip = ShootingSound;
+        source.Play();
 
         GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
         Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.right * 15, ForceMode2D.Impulse);
-
-
-        //Ray ray = Camera.main.ScreenPointToRay(GunRotate.Instance.CrossHair.transform.position);
-        //GameObject Bullet = Instantiate(ammo, FirePoint.position, FirePoint.rotation);
-        //Vector3 target = GunRotate.Instance.CrossHair.transform.position;
-        //Vector2.MoveTowards(this.transform.position, target + new Vector3(100,100,0), 15 * Time.deltaTime);
-        //Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
-        //Vector2 direction = (ray.GetPoint(10000.0f) - Bullet.transform.position).normalized;
-        //rb.AddForce(direction * 5, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(fireRate);
         CanShoot = true;
     }
 
     IEnumerator Reload() {
-        CurrentAmmo = MaxAmmo;
+
+        
         Reloading = true;
         CanShoot = false;
+        yield return new WaitForSeconds(1.0f);
+        source.clip = ReloadingSound;
+        source.Play();
         this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(ReloadTime);
+        yield return new WaitForSeconds(ReloadTime - 1.0f);
         this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        CurrentAmmo = MaxAmmo;
         Reloading = false;
         CanShoot = true;
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision) {
-    //    if (collision.gameObject.CompareTag("Playyer")){
-    //        if (Input.GetKey(KeyCode.F)) {
-    //            WeaponManager.Instance.EquipOneHandedWeapon(this.gameObject);
-    //        }
-    //    }
-    //}
 }

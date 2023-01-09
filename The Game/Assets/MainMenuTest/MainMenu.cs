@@ -23,5 +23,6 @@ public class MainMenu : MonoBehaviour
 
     public void DestroyPlayer() {
         Destroy(PlayerController.Instance.gameObject);
+        Destroy(WeaponManager.Instance.gameObject);
     }
 }

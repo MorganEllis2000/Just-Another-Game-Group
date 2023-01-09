@@ -48,7 +48,7 @@ public class GunRotate : MonoBehaviour
                         this.transform.localPosition = new Vector3(0.64f, 0.09f, 0);
                         WeaponManager.Instance.CurrentlyEquippedWeapon.gameObject.GetComponent<SpriteRenderer>().flipY = true;
                     } else if (WeaponManager.Instance.CurrentlyEquippedWeapon.name == "Shotgun") {
-                        this.transform.localPosition = new Vector3(0.58f, -0.029f, 0);
+                        this.transform.localPosition = new Vector3(0.15f, -0.029f, 0);
                         WeaponManager.Instance.CurrentlyEquippedWeapon.gameObject.GetComponent<SpriteRenderer>().flipY = false;
                     }
                 }
@@ -61,7 +61,7 @@ public class GunRotate : MonoBehaviour
                         this.transform.localPosition = new Vector3(-0.91f, -0.1f, 0);
                         WeaponManager.Instance.CurrentlyEquippedWeapon.gameObject.GetComponent<SpriteRenderer>().flipY = false;
                     } else if (WeaponManager.Instance.CurrentlyEquippedWeapon.name == "Shotgun") {
-                        this.transform.localPosition = new Vector3(-0.58f, -0.029f, 0);
+                        this.transform.localPosition = new Vector3(-0.58f, -0.09f, 0);
                         WeaponManager.Instance.CurrentlyEquippedWeapon.gameObject.GetComponent<SpriteRenderer>().flipY = true;
                     }
                 }
@@ -74,7 +74,7 @@ public class GunRotate : MonoBehaviour
                         this.transform.localPosition = new Vector3(-0.87f, 0.1f, 0);
                         WeaponManager.Instance.CurrentlyEquippedWeapon.gameObject.GetComponent<SpriteRenderer>().flipY = false;
                     } else if (WeaponManager.Instance.CurrentlyEquippedWeapon.name == "Shotgun") {
-                        this.transform.localPosition = new Vector3(-0.58f, -0.029f, 0);
+                        this.transform.localPosition = new Vector3(-0.58f, -0.09f, 0);
                         WeaponManager.Instance.CurrentlyEquippedWeapon.gameObject.GetComponent<SpriteRenderer>().flipY = true;
                     }
 
@@ -88,7 +88,7 @@ public class GunRotate : MonoBehaviour
                         this.transform.localPosition = new Vector3(0.64f, -0.12f, 0);
                         WeaponManager.Instance.CurrentlyEquippedWeapon.gameObject.GetComponent<SpriteRenderer>().flipY = true;
                     } else if (WeaponManager.Instance.CurrentlyEquippedWeapon.name == "Shotgun") {
-                        this.transform.localPosition = new Vector3(-0.58f, -0.029f, 0);
+                        this.transform.localPosition = new Vector3(0.15f, -0.35f, 0);
                         WeaponManager.Instance.CurrentlyEquippedWeapon.gameObject.GetComponent<SpriteRenderer>().flipY = false;
                     }
                 }

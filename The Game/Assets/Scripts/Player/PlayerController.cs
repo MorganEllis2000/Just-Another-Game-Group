@@ -53,8 +53,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject GameOverPanel;
 
-    
-
     // DASH VARIABLES
 
     public bool canDash = true;
@@ -70,7 +68,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected float dashingCooldown = 1f;
     [SerializeField] protected TrailRenderer trailRenderer;
 
-    [SerializeField] AudioSource DashSound;
+    [SerializeField] AudioSource source;
+    [SerializeField] private AudioClip OxygenLow;
+    [SerializeField] private AudioClip DashSound;
+    [SerializeField] private AudioClip DeathSound;
+
+    private bool IsDead = false;
 
     private void Awake() {
 
@@ -125,41 +128,79 @@ public class PlayerController : MonoBehaviour
                 SetPlayerDirection(PlayerDirection.BACK);
             }
         }
+
+        if(Oxygen == 60) {
+            source.clip = OxygenLow;
+            source.Play();
+        } 
     }
 
     private void FixedUpdate() {
-        if(IsTalking == false) {
+        if(IsTalking == false ) {
             if (Health > 0) {
                 if (isDashing == true) {
                     return;
                 }
 
-                if (_Horizontal != 0 || _Vertical != 0) {
-                    animator.SetBool("IsRunning", true);
+                if(Tutorial.Instance != null) {
+                    if(Tutorial.Instance.TutorialCounter > 4) {
+                        if (_Horizontal != 0 || _Vertical != 0) {
+                            animator.SetBool("IsRunning", true);
+                        } else {
+                            SetGunDirection(GunDirection.NONE);
+                            animator.SetBool("IsRunning", false);
+                        }
+
+                        if (_Horizontal != 0 && _Vertical != 0) {
+                            _Horizontal *= _moveLimiter;
+                            _Vertical *= _moveLimiter;
+                        }
+
+                        rigidBody2D.velocity = new Vector2(_Horizontal * runSpeed, _Vertical * runSpeed);
+                    } else {
+                        
+                    }
                 } else {
-                    SetGunDirection(GunDirection.NONE);
-                    animator.SetBool("IsRunning", false);
+                    if (_Horizontal != 0 || _Vertical != 0) {
+                        animator.SetBool("IsRunning", true);
+                    } else {
+                        SetGunDirection(GunDirection.NONE);
+                        animator.SetBool("IsRunning", false);
+                    }
+
+                    if (_Horizontal != 0 && _Vertical != 0) {
+                        _Horizontal *= _moveLimiter;
+                        _Vertical *= _moveLimiter;
+                    }
+
+                    rigidBody2D.velocity = new Vector2(_Horizontal * runSpeed, _Vertical * runSpeed);
                 }
 
-                if (_Horizontal != 0 && _Vertical != 0) {
-                    _Horizontal *= _moveLimiter;
-                    _Vertical *= _moveLimiter;
-                }
-
-                rigidBody2D.velocity = new Vector2(_Horizontal * runSpeed, _Vertical * runSpeed);
 
                 ChangePlayerSprite();
             } else {
                 //Destroy(this.gameObject);
                 //Time.timeScale = 0;
+                if(IsDead == false) {
+                    StartCoroutine(PlayerDying());
+                }
+                
+            }
+        }
+
+        if(Oxygen <= 0) {
+            if (IsDead == false) {
                 StartCoroutine(PlayerDying());
             }
         }
     }
 
     public IEnumerator PlayerDying() {
+        IsDead = true;
         PlayerController.Instance.rigidBody2D.velocity = Vector2.zero;      
         animator.Play("Base Layer.A_PlayerDeath");
+        source.clip = DeathSound;
+        source.Play();
         yield return new WaitForSeconds(5);
         GameOverPanel.SetActive(true);
     }
@@ -192,7 +233,8 @@ public class PlayerController : MonoBehaviour
             rigidBody2D.velocity = new Vector2(transform.localScale.x * dashingPower * _moveLimiter, 0);
         }
 
-        DashSound.Play();
+        source.clip = DashSound;
+        source.Play();
         trailRenderer.emitting = true;
         spriteRenderer.enabled = false;
         yield return new WaitForSeconds(dashingTime);

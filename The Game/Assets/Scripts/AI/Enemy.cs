@@ -35,10 +35,17 @@ public class Enemy : MonoBehaviour
     NavMeshAgent agent;
     public Vector3 target;
 
+    protected AudioSource source;
+    [SerializeField] protected AudioClip TransformSound;
+    [SerializeField] protected AudioClip ThrowSound;
+    [SerializeField] protected AudioClip SmashSound;
+    [SerializeField] protected AudioClip DeathSound;
+
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        OriginalPosition = this.transform.position;
     }
 
     void Start()
@@ -93,24 +100,20 @@ public class Enemy : MonoBehaviour
 
 
     public void ChasePlayer() {
-        //this.transform.position = Vector2.MoveTowards(this.transform.position, PlayerController.Instance.gameObject.transform.position, 3 * Time.deltaTime);
         if (Vector3.Distance(this.transform.position, PlayerController.Instance.transform.position) > 1.0f) {
             agent.SetDestination(new Vector3(target.x, target.y, transform.position.z));
             animator.SetBool("IsWalking", true);
             animator.SetBool("CanTransformBack", false);
-        } else {
-            agent.SetDestination(new Vector3(0,0,0));
-        }
+        } 
     }
 
     public void ReturnToOriginalPos() {
-        //this.transform.position = Vector2.MoveTowards(this.transform.position, OriginalPosition, 3 * Time.deltaTime);
-        agent.SetDestination(new Vector3(OriginalPosition.x + 1, OriginalPosition.y, transform.position.z));
+        agent.SetDestination(OriginalPosition);
         if (Vector2.Distance(this.transform.position, OriginalPosition) < 0.1f) {
             this.GetComponent<Animator>().SetBool("IsWalking", false);
             this.GetComponent<Animator>().SetBool("CanTransform", false);
             this.GetComponent<Animator>().SetBool("CanTransformBack", true);
-            
+            StopAllCoroutines();
             CanMove = false;
             CanAttack = false;
         }
@@ -118,6 +121,5 @@ public class Enemy : MonoBehaviour
 
     public float DistanceOfAiToPlayer() {
         return Vector2.Distance(this.transform.position, PlayerController.Instance.transform.position);
-
     }
 }

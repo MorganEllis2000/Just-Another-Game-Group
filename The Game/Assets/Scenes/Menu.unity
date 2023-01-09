@@ -727,6 +727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingScreen: {fileID: 903711572}
+  ID: 0
 --- !u!1 &488021260
 GameObject:
   m_ObjectHideFlags: 0

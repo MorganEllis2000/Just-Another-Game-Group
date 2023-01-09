@@ -34,7 +34,7 @@ public class LoadingScene : MonoBehaviour
         }
     }
 
-    IEnumerator LoadSceneAsync(int sceneID) {
+    public IEnumerator LoadSceneAsync(int sceneID) {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
 
         LoadingScreen.SetActive(true);
@@ -45,6 +45,12 @@ public class LoadingScene : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        LoadScene(2);
+        if (collision.CompareTag("Player")) {
+            LoadScene(2);
+
+            if (SceneManager.GetActiveScene().name == "WFC") {
+                PlayerController.Instance.transform.position = new Vector3(-25.2f, 23.7f, 0);
+            }
+        }
     }
 }
