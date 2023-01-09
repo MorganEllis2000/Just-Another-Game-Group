@@ -1,3 +1,5 @@
+// WRITTEN BY: MORGAN ELLIS
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -251,6 +253,9 @@ public class PlayerController : MonoBehaviour
         UpdatePlayerDirection();
     }
 
+    /// <summary>
+    /// Upadtes the gun direction which corresponds to a character sprite
+    /// </summary>
     public void UpdateGunDirection() {
         switch (gunDirection) {
             case GunDirection.SE:
@@ -281,6 +286,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // This tells us if the player is facing the forwards (SE, SW) or Backwards (NW, NE)
     public void UpdatePlayerDirection() {
         switch (playerDirection) {
             case PlayerDirection.FRONT:
@@ -298,10 +304,15 @@ public class PlayerController : MonoBehaviour
         return playerDirection = direction;
     }
 
+    // Sets the direction in which the gun is facing which can be NE, SE, SW, NW
+    // This determines which sprite the player should be facing
     public GunDirection SetGunDirection(GunDirection direction) {
         return gunDirection = direction;
     }
 
+    /// <summary>
+    /// Updates the weapon the player currently has in their hands
+    /// </summary>
     public void UpdatePlayerOneHandedWeapon() {
         switch (oneHandedWeapons) {
             case OneHandedWeapons.NONE:
@@ -315,21 +326,41 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the weapon the player currently has equipped
+    /// </summary>
+    /// <param name="weapon"></param>
+    /// <returns></returns>
     public OneHandedWeapons SetOneHandedWeapon(OneHandedWeapons weapon) {
         return oneHandedWeapons = weapon;
     }
 
+    /// <summary>
+    /// Applies damage to the player
+    /// </summary>
+    /// <param name="damage"></param>
     public void TakeDamage(float damage) {
         Health -= damage;
         StartCoroutine(ChangeSpriteColour(0.2f));
     }
 
+    /// <summary>
+    /// Change the colour of the sprite to red to signify taking damage
+    /// </summary>
+    /// <param name="seconds"></param>
+    /// <returns></returns>
     public IEnumerator ChangeSpriteColour(float seconds) {
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(seconds);
         spriteRenderer.color = Color.white;
     }
 
+    /// <summary>
+    /// Change the colour of the script based on colour input from the user
+    /// </summary>
+    /// <param name="color"></param>
+    /// <param name="seconds"></param>
+    /// <returns></returns>
     public IEnumerator ChangeSpriteColour(Color color, float seconds) {
         spriteRenderer.color = color;
         yield return new WaitForSeconds(seconds);

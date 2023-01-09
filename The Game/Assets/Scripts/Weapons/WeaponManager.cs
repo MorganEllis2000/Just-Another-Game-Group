@@ -1,9 +1,15 @@
+// WRITTEN BY: MORGAN ELLIS
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// This script is responsible for managing the players weapon as well as
+/// allowing them to switch weapons using the 1 and 2 keys
+/// </summary>
 public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager Instance { get; private set; }

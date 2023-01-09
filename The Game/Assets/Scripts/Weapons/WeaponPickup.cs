@@ -1,17 +1,19 @@
+// WRITTEN BY: MORGAN ELLIS
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This script is placed on pickup gameobjects and when the player presses
+/// F they can pick up the corresponding weapon on the floor and is then
+/// added to the weapon manager
+/// </summary>
 public class WeaponPickup : MonoBehaviour
 {
     [SerializeField] protected GameObject WeaponToEquip;
     [SerializeField] protected GameObject PickupText;
-
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

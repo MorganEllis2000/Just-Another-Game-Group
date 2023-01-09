@@ -1,3 +1,5 @@
+// WRITTEN BY: MORGAN ELLIS
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +11,6 @@ public class Tree : Enemy
     [SerializeField] private GameObject branch;
     [SerializeField] private GameObject ThrowPoint;
     [SerializeField] private GameObject Roots;
-    //[SerializeField] private GameObject navMeshSurface;
 
     void Start()
     {
@@ -109,6 +110,11 @@ public class Tree : Enemy
         CanAttack = true;
     }
 
+    /// <summary>
+    /// Unlike the rock which slams into the ground, the tree digs its branches into the ground
+    /// and spawns roots under the player which can damage them if they don't get out of the way in time
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator ShortRangeAttack() {
         CanAttack = false;
         animator.SetBool("CanAttackClose", true);

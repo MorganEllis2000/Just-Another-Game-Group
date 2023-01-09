@@ -1,25 +1,25 @@
+// WRITTEN BY: MORGAN ELLIS
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This is the parent class from which all types of bullets in the game inherits from
+/// </summary>
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] protected float BulletSpeed;
+    [SerializeField] protected float BulletSpeed; // how fast the bullet travels
     private Rigidbody2D rigidBody;
-    [SerializeField] protected float LiveTime;
+    [SerializeField] protected float LiveTime; // time before it is destroyed
     [SerializeField] public Vector3 target;
-    [SerializeField] private int Damage;
+    [SerializeField] private int Damage; // damage it will do to a target
 
     private void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
-        //rigidBody.velocity = transform.forward * BulletSpeed;
     }
 
     private void Update() {
-        //Vector2.MoveTowards(this.transform.position, target, BulletSpeed * Time.deltaTime);
-        //this.transform.position += -transform.forward * BulletSpeed * Time.deltaTime;
-        //transform.Translate((transform.forward * BulletSpeed * Time.deltaTime));
-        //this.GetComponent<Rigidbody2D>().AddForce(this.transform.forward * BulletSpeed, ForceMode2D.Impulse);
         LiveTime -= Time.deltaTime;
         if(LiveTime <= 0f) {
             Destroy(gameObject);

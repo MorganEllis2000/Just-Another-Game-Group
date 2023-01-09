@@ -1,7 +1,12 @@
+// WRITTEN BY: MORGAN ELLIS
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script is reponsible for rotating the gun on the player as well as moving the crosshair
+/// </summary>
 public class GunRotate : MonoBehaviour
 {
     public static GunRotate Instance { get; private set; }
@@ -110,15 +115,5 @@ public class GunRotate : MonoBehaviour
                 } 
             }
         } 
-    }
-
-    public void MoveCrosshair() {
-        Vector3 aim = new Vector3(Input.GetAxis("MouseX"), Input.GetAxis("MouseY"), 0.0f);
-
-        if(aim.magnitude > 0.0f) {
-            aim.Normalize();
-            aim *= 1.5f;
-            CrossHair.transform.localPosition = aim;
-        }
     }
 }

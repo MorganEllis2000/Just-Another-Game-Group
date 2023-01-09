@@ -1,7 +1,13 @@
+// WRITTEN BY: MORGAN ELLIS
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A selector node is one which returns success if any of the child nodes return success
+/// **BTs were not used in the final project due to the limited scope of the AI**
+/// </summary>
 public class Selector : Node {
     protected List<Node> nodes = new List<Node>();
 

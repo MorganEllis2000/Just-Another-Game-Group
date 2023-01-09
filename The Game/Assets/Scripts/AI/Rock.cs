@@ -1,3 +1,4 @@
+// WRITTEN BY: MORGAN ELLIS
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,7 @@ public class Rock : Enemy
     }
 
     void Update() {
-        UpdateTargetPosition();
+        UpdateTargetPosition(); 
 
 
         if (Health > 0) {
@@ -95,7 +96,11 @@ public class Rock : Enemy
         Destroy(this.gameObject);
     }
 
-
+    /// <summary>
+    /// If the player is out of the ShortRangeAttackRange and within the LongRangeAttackRange then
+    /// the enemy will perform a long range attack, for the rock it is to throw a rock at the player
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator LongRangeAttack() {
         CanAttack = false;
         animator.SetBool("IsThrowing", true);
@@ -113,6 +118,11 @@ public class Rock : Enemy
         CanAttack = true;
     }
 
+    /// <summary>
+    /// If the player is out of the LongRangeAttackRange and within the ShortRangeAttackRange then
+    /// the enemy will perform a short range attack, for the rock it is slam into the floor and create a shock wave
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator ShortRangeAttack() {
         CanAttack = false;
 

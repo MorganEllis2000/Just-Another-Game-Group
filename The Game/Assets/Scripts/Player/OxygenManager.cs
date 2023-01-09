@@ -1,12 +1,17 @@
+// WRITTEN BY: MORGAN ELLIS
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This script is responsible for managing the players oxygen
+/// It decreases at a rate of 1 but pauses if the player is engaged in dialogue
+/// </summary>
 public class OxygenManager : MonoBehaviour
 {
     public static OxygenManager Instance { get; private set; }
-
 
     public Slider OxygenBar;
 

@@ -1,7 +1,13 @@
+// WRITTEN BY: MORGAN ELLIS
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This is the parent class from which all the weapons in the game inherit from, this contains the 
+/// variables for the weapons such as ammo, firerates and bools to make the guns work
+/// </summary>
 public class Weapon : MonoBehaviour
 {
     [SerializeField] protected float fireRate;

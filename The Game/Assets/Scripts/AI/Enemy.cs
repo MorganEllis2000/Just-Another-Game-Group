@@ -1,8 +1,11 @@
+//WRITTEN BY: MORGAN ELLIS
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// This enum tracks which direction the enemy is facing
 public enum EnemyDirection {
     NE,
     NW,
@@ -11,6 +14,9 @@ public enum EnemyDirection {
     NONE
 }
 
+/// <summary>
+/// This is a parent class in which the enemies in the game are derived from
+/// </summary>
 public class Enemy : MonoBehaviour
 {
     protected EnemyDirection enemyDirection;
@@ -59,6 +65,9 @@ public class Enemy : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Depedning on the players x and y coordinates relative to the position of the enemy the direction the enemy is facing is decided
+    /// </summary>
     public void CheckEnemyDirection() {
         if (PlayerController.Instance.transform.position.x < this.gameObject.transform.position.x && PlayerController.Instance.transform.position.y < this.gameObject.transform.position.y) {
             enemyDirection = EnemyDirection.SW;
@@ -71,6 +80,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Use the enum to update the enemy sprite with the correct direction
+    /// </summary>
+    /// <param name="sprite"></param>
     public void UpdateEnemyDirection(SpriteRenderer sprite) {
         switch (enemyDirection) {
             case EnemyDirection.SW:
@@ -94,11 +107,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Update the target position to that of the player so the enemy knows what to chase and throw to
+    /// </summary>
     public void UpdateTargetPosition() {
         target = PlayerController.Instance.transform.position;
     }
 
 
+    /// <summary>
+    /// Sets the destination of the NavMeshAgent to the players position
+    /// </summary>
     public void ChasePlayer() {
         if (Vector3.Distance(this.transform.position, PlayerController.Instance.transform.position) > 1.0f) {
             agent.SetDestination(new Vector3(target.x, target.y, transform.position.z));
@@ -107,6 +126,9 @@ public class Enemy : MonoBehaviour
         } 
     }
 
+    /// <summary>
+    /// When the enemy leaves the range in which they can attack the player they return to the their original position
+    /// </summary>
     public void ReturnToOriginalPos() {
         agent.SetDestination(OriginalPosition);
         if (Vector2.Distance(this.transform.position, OriginalPosition) < 0.1f) {
@@ -119,6 +141,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Calculates the distance between this enemy and the player as a float
+    /// </summary>
+    /// <returns></returns>
     public float DistanceOfAiToPlayer() {
         return Vector2.Distance(this.transform.position, PlayerController.Instance.transform.position);
     }

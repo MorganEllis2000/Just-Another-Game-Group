@@ -1,7 +1,13 @@
+// WRITTEN BY: MORGAN ELLIS
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// This script is responsible for controlling the shotgun that the player uses
+/// </summary>
 public class Shotgun : Weapon
 {
     [SerializeField] private GameObject ammo;

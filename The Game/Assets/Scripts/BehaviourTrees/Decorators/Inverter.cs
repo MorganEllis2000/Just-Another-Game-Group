@@ -1,7 +1,13 @@
+// WRITTEN BY: MORGAN ELLIS
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// An inverter node inverts the outcome of a node, success becomes failure and vise versa
+/// **BTs were not used in the final project due to the limited scope of the AI**
+/// </summary>
 public class Inverter : Node
 {
     protected Node node;

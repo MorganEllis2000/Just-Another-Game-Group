@@ -1,4 +1,6 @@
-﻿using System;
+﻿// WRITTEN BY: MORGAN ELLIS
+
+using System;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
@@ -35,6 +37,10 @@ public class Pistol : Weapon {
         }
     }
 
+    /// <summary>
+    /// This shoots the bullets out the gun but also is the fire rate of the gun
+    /// </summary>
+    /// <returns></returns>
     IEnumerator FireRate() {
         CanShoot = false;
         source.clip = ShootingSound;
@@ -47,9 +53,7 @@ public class Pistol : Weapon {
         CanShoot = true;
     }
 
-    IEnumerator Reload() {
-
-        
+    IEnumerator Reload() {   
         Reloading = true;
         CanShoot = false;
         yield return new WaitForSeconds(1.0f);
